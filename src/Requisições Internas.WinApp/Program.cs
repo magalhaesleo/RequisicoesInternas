@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Requisições_Internas.WinApp.IoC;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace Requisições_Internas.WinApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            SimpleInjectorContainer.RegisterInstances();
+            Application.Run(SimpleInjectorContainer.Container.GetInstance<Main>());
         }
     }
 }

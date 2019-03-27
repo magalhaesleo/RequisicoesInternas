@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Requisições_Internas.Application
+namespace Requisições_Internas.Domain.Object_Values
 {
-    public class Class1
+    public class Unit
     {
+        public string Name { get; set; }
     }
 }

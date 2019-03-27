@@ -41,8 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Base\IService.cs" />
+    <Compile Include="Features\Products\IProductService.cs" />
+    <Compile Include="Features\Products\ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Requisições Internas.Domain\Requisições Internas.Domain.csproj">
+      <Project>{d77bfc1e-287c-49be-9db7-e1f9ee9797be}</Project>
+      <Name>Requisições Internas.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

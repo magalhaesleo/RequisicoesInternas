@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Requisições_Internas.Domain
+namespace Requisições_Internas.Domain.Base
 {
-    public class Class1
+    public abstract class Entity
     {
+        public long Id { get; set; }
     }
 }
