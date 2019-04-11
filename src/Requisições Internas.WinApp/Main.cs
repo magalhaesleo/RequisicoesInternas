@@ -19,7 +19,7 @@ namespace Requisições_Internas.WinApp
 {
     public partial class Main : Form
     {
-       // private readonly ProductControl _productControl;
+        private readonly ProductControl _productControl;
         private readonly ProviderControl _providerControl;
         private readonly InvoiceControl _invoiceControl;
         private readonly OrderControl _orderControl;
@@ -27,13 +27,13 @@ namespace Requisições_Internas.WinApp
         private readonly ReportControl _reportsControl;
         private readonly PersonalDataControl _personalDataControl;
 
-        public Main(ProviderControl providerControl, InvoiceControl invoiceControl, OrderControl orderControl, UsersControl usersControl, ReportControl reportsControl,  PersonalDataControl personalDataControl)
+        public Main(ProviderControl providerControl, InvoiceControl invoiceControl, OrderControl orderControl, UsersControl usersControl, ReportControl reportsControl, ProductControl productControl, PersonalDataControl personalDataControl)
         {
             InitializeComponent();
             _providerControl = providerControl;
             _invoiceControl = invoiceControl;
             _orderControl = orderControl;
-          //  _productControl = productControl;
+            _productControl = productControl;
             _usersControl = usersControl;
             _reportsControl = reportsControl;
             _personalDataControl = personalDataControl;
@@ -47,7 +47,7 @@ namespace Requisições_Internas.WinApp
 
         private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-       //     ChangeControl(_productControl);
+            ChangeControl(_productControl);
         }
 
         private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e)

@@ -15,11 +15,11 @@ namespace Requisições_Internas.WinApp
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            System.Windows.Forms.Application.EnableVisualStyles();
+            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 
             SimpleInjectorContainer.RegisterInstances();
-            Application.Run(SimpleInjectorContainer.Container.GetInstance<Main>());
+            System.Windows.Forms.Application.Run(SimpleInjectorContainer.Container.GetInstance<Main>());
         }
     }
 }

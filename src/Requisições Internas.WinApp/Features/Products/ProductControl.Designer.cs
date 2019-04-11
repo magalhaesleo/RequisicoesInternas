@@ -63,6 +63,7 @@
             this.btnAddNew.TabIndex = 21;
             this.btnAddNew.Text = "Adicionar Novo";
             this.btnAddNew.UseVisualStyleBackColor = true;
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // label1
             // 

@@ -42,7 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\Entity.cs" />
+    <Compile Include="Base\IRepository.cs" />
     <Compile Include="Features\Products\Product.cs" />
+    <Compile Include="Features\Providers\IProviderRepository.cs" />
+    <Compile Include="Features\Providers\Provider.cs" />
+    <Compile Include="Object Values\Enabled.cs" />
     <Compile Include="Object Values\Unit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

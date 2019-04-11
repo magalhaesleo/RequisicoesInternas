@@ -21,5 +21,11 @@ namespace Requisições_Internas.WinApp.Features.Products
         {
 
         }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            ProductAddForm productAddFrm = new ProductAddForm();
+            productAddFrm.ShowDialog();
+        }
     }
 }

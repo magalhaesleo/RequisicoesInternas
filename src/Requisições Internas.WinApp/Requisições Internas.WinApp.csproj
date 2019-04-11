@@ -85,6 +85,12 @@
     <Compile Include="Features\Products\ProductControl.Designer.cs">
       <DependentUpon>ProductControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Providers\ProviderAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Providers\ProviderAddForm.Designer.cs">
+      <DependentUpon>ProviderAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Providers\ProviderControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     <EmbeddedResource Include="Features\Products\ProductControl.resx">
       <DependentUpon>ProductControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Providers\ProviderAddForm.resx">
+      <DependentUpon>ProviderAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Providers\ProviderControl.resx">
       <DependentUpon>ProviderControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +173,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Requisições Internas.Application\Requisições Internas.Application.csproj">
+      <Project>{053B9CFD-2687-423C-8397-7F352F9F7FA6}</Project>
+      <Name>Requisições Internas.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Requisições Internas.Domain\Requisições Internas.Domain.csproj">
+      <Project>{D77BFC1E-287C-49BE-9DB7-E1F9EE9797BE}</Project>
+      <Name>Requisições Internas.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Requisições Internas.Infra.Data\Requisições Internas.Infra.Data.csproj">
+      <Project>{F67662DC-6487-4417-B7D8-FAD4D5D7EA61}</Project>
+      <Name>Requisições Internas.Infra.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
