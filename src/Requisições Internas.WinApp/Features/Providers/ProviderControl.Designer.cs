@@ -33,7 +33,7 @@
             this.btnAddNew = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dtgProviders = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProviders)).BeginInit();
@@ -84,14 +84,15 @@
             this.button3.Text = "Excluir";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnUpdate
             // 
-            this.button2.Location = new System.Drawing.Point(709, 133);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(709, 133);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 26;
+            this.btnUpdate.Text = "Editar";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // button1
             // 
@@ -106,7 +107,9 @@
             // 
             this.dtgProviders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgProviders.Location = new System.Drawing.Point(20, 104);
+            this.dtgProviders.MultiSelect = false;
             this.dtgProviders.Name = "dtgProviders";
+            this.dtgProviders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgProviders.Size = new System.Drawing.Size(683, 304);
             this.dtgProviders.TabIndex = 24;
             // 
@@ -119,7 +122,7 @@
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dtgProviders);
             this.Name = "ProviderControl";
@@ -137,7 +140,7 @@
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dtgProviders;
     }

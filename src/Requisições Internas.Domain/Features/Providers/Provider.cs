@@ -13,7 +13,7 @@ namespace Requisições_Internas.Domain.Features.Providers
         public string Name { get; set; }
         public string CNPJ { get; set; }
         public string Telephone { get; set; }
-        public Enabled Enabled { get; set; }
+        public bool Enabled { get; set; }
 
         public void Validate()
         {

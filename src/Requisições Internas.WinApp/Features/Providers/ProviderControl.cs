@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Requisições_Internas.Application.Features.Providers;
+using Requisições_Internas.Domain.Features.Providers;
 
 namespace Requisições_Internas.WinApp.Features.Providers
 {
@@ -36,6 +37,18 @@ namespace Requisições_Internas.WinApp.Features.Providers
         private void UpdateList()
         {
             dtgProviders.DataSource = _providerService.GetAll().ToList();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            ProviderAddForm providerForm = new ProviderAddForm();
+            providerForm.Text = "Update";
+            var a = dtgProviders.CurrentRow.Cells[0];
+            //var provider = (Provider)dtgProviders.SelectedRows[0];
+            
+            //providerForm.SetProvider();
+
+            providerForm.ShowDialog();
         }
     }
 }

@@ -49,13 +49,22 @@ namespace Requisições_Internas.WinApp.Features.Providers
                 this.Close();
         }
 
+        public void SetProvider(Provider provider)
+        {
+            txtName.Text = provider.Name;
+            txtCNPJ.Text = provider.CNPJ;
+            txtTelephone.Text = provider.Telephone;
+            cbEnabled.Checked = provider.Enabled;
+        }
+
         private void btnAddProvider_Click(object sender, EventArgs e)
         {
             Provider provider = new Provider();
 
             provider.Name = txtName.Text;
             provider.CNPJ = txtCNPJ.Text;
-            provider.Enabled = Domain.Object_Values.Enabled.YES;
+            provider.Telephone = txtTelephone.Text;
+            provider.Enabled = cbEnabled.Checked;
 
             try
             { 
