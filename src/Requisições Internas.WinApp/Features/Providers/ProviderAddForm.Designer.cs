@@ -86,7 +86,7 @@
             this.btnAddProvider.Location = new System.Drawing.Point(256, 186);
             this.btnAddProvider.Name = "btnAddProvider";
             this.btnAddProvider.Size = new System.Drawing.Size(75, 23);
-            this.btnAddProvider.TabIndex = 6;
+            this.btnAddProvider.TabIndex = 4;
             this.btnAddProvider.Text = "Adicionar";
             this.btnAddProvider.UseVisualStyleBackColor = true;
             this.btnAddProvider.Click += new System.EventHandler(this.btnAddProvider_Click);
@@ -96,7 +96,7 @@
             this.txtCNPJ.Location = new System.Drawing.Point(23, 76);
             this.txtCNPJ.Name = "txtCNPJ";
             this.txtCNPJ.Size = new System.Drawing.Size(308, 20);
-            this.txtCNPJ.TabIndex = 7;
+            this.txtCNPJ.TabIndex = 1;
             // 
             // cbEnabled
             // 
@@ -106,7 +106,7 @@
             this.cbEnabled.Location = new System.Drawing.Point(23, 161);
             this.cbEnabled.Name = "cbEnabled";
             this.cbEnabled.Size = new System.Drawing.Size(79, 17);
-            this.cbEnabled.TabIndex = 8;
+            this.cbEnabled.TabIndex = 3;
             this.cbEnabled.Text = "Habilitado?";
             this.cbEnabled.UseVisualStyleBackColor = true;
             // 

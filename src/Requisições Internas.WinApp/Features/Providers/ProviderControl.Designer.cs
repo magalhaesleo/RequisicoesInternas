@@ -109,6 +109,7 @@
             this.dtgProviders.Location = new System.Drawing.Point(20, 104);
             this.dtgProviders.MultiSelect = false;
             this.dtgProviders.Name = "dtgProviders";
+            this.dtgProviders.ReadOnly = true;
             this.dtgProviders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgProviders.Size = new System.Drawing.Size(683, 304);
             this.dtgProviders.TabIndex = 24;

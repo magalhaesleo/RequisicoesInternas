@@ -49,8 +49,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ContextInternalRequisitions.cs" />
+    <Compile Include="Features\Invoices\InvoiceRepository.cs" />
+    <Compile Include="Features\Invoices\InvoiceConfiguration.cs" />
+    <Compile Include="Features\Products\ProductConfiguration.cs" />
+    <Compile Include="Features\Products\ProductRepository.cs" />
     <Compile Include="Features\Providers\ProviderConfiguration.cs" />
     <Compile Include="Features\Providers\ProviderRepository.cs" />
+    <Compile Include="Features\Requests\RequestConfiguration.cs" />
+    <Compile Include="Features\Requests\RequestRepository.cs" />
+    <Compile Include="Migrations\201904250019235_adicionadotbrequestproducts.cs" />
+    <Compile Include="Migrations\201904250019235_adicionadotbrequestproducts.Designer.cs">
+      <DependentUpon>201904250019235_adicionadotbrequestproducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +73,11 @@
       <Project>{D77BFC1E-287C-49BE-9DB7-E1F9EE9797BE}</Project>
       <Name>Requisições Internas.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904250019235_adicionadotbrequestproducts.resx">
+      <DependentUpon>201904250019235_adicionadotbrequestproducts.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
