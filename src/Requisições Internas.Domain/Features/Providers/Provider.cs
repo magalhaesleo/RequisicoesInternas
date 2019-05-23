@@ -1,5 +1,4 @@
 ﻿using Requisições_Internas.Domain.Base;
-using Requisições_Internas.Domain.Object_Values;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -36,7 +36,15 @@ namespace Requisições_Internas.WinApp.Features.Providers
 
         private void UpdateList()
         {
-            dtgProviders.DataSource = _providerService.GetAll().ToList();
+            try
+            {
+                var datasource = _providerService.GetAll();
+                dtgProviders.DataSource = datasource.ToList();
+            }
+            catch (Exception)
+            {
+                dtgProviders.DataSource = new List<object>();
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

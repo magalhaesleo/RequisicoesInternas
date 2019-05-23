@@ -35,8 +35,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dtgProducts = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -102,13 +102,13 @@
             this.button1.Text = "Abrir";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dtgProducts
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 104);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(683, 304);
-            this.dataGridView1.TabIndex = 16;
+            this.dtgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgProducts.Location = new System.Drawing.Point(20, 104);
+            this.dtgProducts.Name = "dtgProducts";
+            this.dtgProducts.Size = new System.Drawing.Size(683, 304);
+            this.dtgProducts.TabIndex = 16;
             // 
             // ProductControl
             // 
@@ -121,10 +121,10 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtgProducts);
             this.Name = "ProductControl";
             this.Size = new System.Drawing.Size(800, 426);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,6 +139,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgProducts;
     }
 }

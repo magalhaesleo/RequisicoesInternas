@@ -9,9 +9,14 @@ namespace Requisições_Internas.Application.Features.Products
 {
     public class ProductService : IProductService
     {
+        IProductRepository _productRepository;
+        public ProductService(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
         public long Add(Product entity)
         {
-            throw new NotImplementedException();
+            return _productRepository.Add(entity);
         }
 
         public long Delete(long id)
@@ -21,7 +26,7 @@ namespace Requisições_Internas.Application.Features.Products
 
         public IEnumerable<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return _productRepository.GetAll();
         }
 
         public Product GetById(long id)

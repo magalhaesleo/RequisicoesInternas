@@ -7,25 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Requisições_Internas.Application.Features.Units;
+using Requisições_Internas.Application.Features.Products;
 
 namespace Requisições_Internas.WinApp.Features.Products
 {
     public partial class ProductControl : UserControl
     {
-        public ProductControl()
+        IUnitService _unitService;
+        IProductService _productService;
+        public ProductControl(IUnitService unitService, IProductService productService)
         {
             InitializeComponent();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
+            _unitService = unitService;
+            _productService = productService;
+            UpdateList();
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            ProductAddForm productAddFrm = new ProductAddForm();
+            ProductAddForm productAddFrm = new ProductAddForm(_unitService, _productService);
             productAddFrm.ShowDialog();
+            UpdateList();
+        }
+
+        private void UpdateList()
+        {
+            this.dtgProducts.DataSource = _productService.GetAll().ToList();
         }
     }
 }

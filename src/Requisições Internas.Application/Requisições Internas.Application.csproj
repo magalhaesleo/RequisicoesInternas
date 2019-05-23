@@ -46,6 +46,8 @@
     <Compile Include="Features\Products\ProductService.cs" />
     <Compile Include="Features\Providers\IProviderService.cs" />
     <Compile Include="Features\Providers\ProviderService.cs" />
+    <Compile Include="Features\Units\UnitService.cs" />
+    <Compile Include="Features\Units\IUnitService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

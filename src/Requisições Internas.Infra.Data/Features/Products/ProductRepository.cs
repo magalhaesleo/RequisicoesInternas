@@ -1,4 +1,5 @@
 ﻿using Requisições_Internas.Domain.Features.Products;
+using Requisições_Internas.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,17 @@ namespace Requisições_Internas.Infra.Data.Features.Products
 {
     public class ProductRepository : IProductRepository
     {
+        readonly ContextInternalRequisitions _contextInternalRequisitions;
+        public ProductRepository(ContextInternalRequisitions contextInternalRequisitions)
+        {
+            _contextInternalRequisitions = contextInternalRequisitions;
+        }
         public long Add(Product entity)
         {
-            throw new NotImplementedException();
+            _contextInternalRequisitions.Products.Add(entity);
+            _contextInternalRequisitions.SaveChanges();
+
+            return entity.Id;
         }
 
         public long Delete(long id)
@@ -21,7 +30,7 @@ namespace Requisições_Internas.Infra.Data.Features.Products
 
         public IEnumerable<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return _contextInternalRequisitions.Products;
         }
 
         public Product GetById(long id)

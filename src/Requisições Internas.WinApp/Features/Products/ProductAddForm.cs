@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Requisições_Internas.Application.Features.Products;
+using Requisições_Internas.Application.Features.Units;
+using Requisições_Internas.Domain.Features.Products;
+using Requisições_Internas.Domain.Features.Units;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +16,17 @@ namespace Requisições_Internas.WinApp.Features.Products
 {
     public partial class ProductAddForm : Form
     {
-        public ProductAddForm()
+        IUnitService _unitService;
+        IProductService _productService;
+        public ProductAddForm(IUnitService unitService, IProductService productService)
         {
             InitializeComponent();
+            _unitService = unitService;
+            _productService = productService;
+
+            cmbUnit.Items.AddRange(_unitService.GetAll().ToArray());
+
+            cmbUnit.SelectedIndex++;
         }
 
         private void txtName_KeyUp(object sender, KeyEventArgs e)
@@ -47,5 +59,17 @@ namespace Requisições_Internas.WinApp.Features.Products
                 this.Close();
         }
 
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            Product product = new Product();
+            product.Name = txtName.Text;
+            product.Description = txtDescription.Text;
+            product.Unit = (Unit)cmbUnit.SelectedItem;
+
+
+            _productService.Add(product);
+
+            this.Close();
+        }
     }
 }
