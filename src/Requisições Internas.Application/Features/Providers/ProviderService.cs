@@ -19,9 +19,9 @@ namespace Requisições_Internas.Application.Features.Providers
             return _providerRepository.Add(provider);
         }
 
-        public long Delete(long id)
+        public bool Delete(long id)
         {
-            throw new NotImplementedException();
+            return _providerRepository.Delete(id);
         }
 
         public IEnumerable<Provider> GetAll()
@@ -31,12 +31,12 @@ namespace Requisições_Internas.Application.Features.Providers
 
         public Provider GetById(long id)
         {
-            throw new NotImplementedException();
+            return _providerRepository.GetById(id);
         }
 
         public bool Update(Provider entity)
         {
-            throw new NotImplementedException();
+            return _providerRepository.Update(entity);
         }
     }
 }

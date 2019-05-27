@@ -24,9 +24,10 @@ namespace Requisições_Internas.Infra.Data.Features.Providers
             return providerAdded.Id;
         }
 
-        public long Delete(long id)
+        public bool Delete(long id)
         {
-            throw new NotImplementedException();
+             _contextInternalRequisitions.Providers.Remove(GetById(id));
+            return _contextInternalRequisitions.SaveChanges() != 0;
         }
 
         public IEnumerable<Provider> GetAll()
@@ -36,12 +37,13 @@ namespace Requisições_Internas.Infra.Data.Features.Providers
 
         public Provider GetById(long id)
         {
-            throw new NotImplementedException();
+            return _contextInternalRequisitions.Providers.
+                Where(p => p.Id == id).FirstOrDefault();
         }
 
         public bool Update(Provider entity)
         {
-            throw new NotImplementedException();
+             return _contextInternalRequisitions.SaveChanges() != 0;
         }
     }
 }

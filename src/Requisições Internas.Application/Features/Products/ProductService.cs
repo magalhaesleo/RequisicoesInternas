@@ -19,7 +19,7 @@ namespace Requisições_Internas.Application.Features.Products
             return _productRepository.Add(entity);
         }
 
-        public long Delete(long id)
+        public bool Delete(long id)
         {
             throw new NotImplementedException();
         }

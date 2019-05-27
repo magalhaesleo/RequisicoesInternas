@@ -23,7 +23,7 @@ namespace Requisições_Internas.Infra.Data.Features.Products
             return entity.Id;
         }
 
-        public long Delete(long id)
+        public bool Delete(long id)
         {
             throw new NotImplementedException();
         }

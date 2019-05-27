@@ -14,7 +14,7 @@ namespace Requisições_Internas.Infra.Data.Features.Invoices
             throw new NotImplementedException();
         }
 
-        public long Delete(long id)
+        public bool Delete(long id)
         {
             throw new NotImplementedException();
         }

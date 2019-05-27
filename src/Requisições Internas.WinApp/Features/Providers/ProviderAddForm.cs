@@ -19,6 +19,15 @@ namespace Requisições_Internas.WinApp.Features.Providers
             InitializeComponent();
         }
 
+        public ProviderAddForm(Provider provider) : this()
+        {
+            Provider = provider;
+            txtName.Text = Provider.Name;
+            txtCNPJ.Text = Provider.CNPJ;
+            txtTelephone.Text = Provider.Telephone;
+            cbEnabled.Checked = Provider.Enabled;
+        }
+
         private void txtName_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -59,17 +68,16 @@ namespace Requisições_Internas.WinApp.Features.Providers
 
         private void btnAddProvider_Click(object sender, EventArgs e)
         {
-            Provider provider = new Provider();
+            Provider = Provider == null ? new Provider() : Provider;
 
-            provider.Name = txtName.Text;
-            provider.CNPJ = txtCNPJ.Text;
-            provider.Telephone = txtTelephone.Text;
-            provider.Enabled = cbEnabled.Checked;
+            Provider.Name = txtName.Text;
+            Provider.CNPJ = txtCNPJ.Text;
+            Provider.Telephone = txtTelephone.Text;
+            Provider.Enabled = cbEnabled.Checked;
 
             try
-            { 
-                provider.Validate();
-                Provider = provider;
+            {
+                Provider.Validate();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

@@ -12,7 +12,7 @@ namespace Requisições_Internas.Application.Base
         long Add(T entity);
         T GetById(long id);
         bool Update(T entity);
-        long Delete(long id);
+        bool Delete(long id);
         IEnumerable<T> GetAll();
     }
 }

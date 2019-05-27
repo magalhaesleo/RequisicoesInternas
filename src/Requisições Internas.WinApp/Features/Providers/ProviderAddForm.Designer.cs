@@ -142,8 +142,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnAddProvider;
         private System.Windows.Forms.TextBox txtCNPJ;
         private System.Windows.Forms.CheckBox cbEnabled;
+        internal System.Windows.Forms.Button btnAddProvider;
     }
 }

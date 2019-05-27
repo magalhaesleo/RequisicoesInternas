@@ -32,9 +32,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDeleteProvider = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.dtgProviders = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProviders)).BeginInit();
             this.SuspendLayout();
@@ -71,37 +70,29 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 25);
+            this.label1.Size = new System.Drawing.Size(145, 25);
             this.label1.TabIndex = 28;
-            this.label1.Text = "ItemType";
+            this.label1.Text = "Fornecedores";
             // 
-            // button3
+            // btnDeleteProvider
             // 
-            this.button3.Location = new System.Drawing.Point(709, 162);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "Excluir";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDeleteProvider.Location = new System.Drawing.Point(709, 132);
+            this.btnDeleteProvider.Name = "btnDeleteProvider";
+            this.btnDeleteProvider.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteProvider.TabIndex = 27;
+            this.btnDeleteProvider.Text = "Excluir";
+            this.btnDeleteProvider.UseVisualStyleBackColor = true;
+            this.btnDeleteProvider.Click += new System.EventHandler(this.btnDeleteProvider_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(709, 133);
+            this.btnUpdate.Location = new System.Drawing.Point(709, 103);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 26;
             this.btnUpdate.Text = "Editar";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(709, 104);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Abrir";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // dtgProviders
             // 
@@ -122,9 +113,8 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnDeleteProvider);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dtgProviders);
             this.Name = "ProviderControl";
             this.Size = new System.Drawing.Size(800, 426);
@@ -140,9 +130,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDeleteProvider;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dtgProviders;
     }
 }

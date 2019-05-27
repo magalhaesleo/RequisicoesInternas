@@ -20,7 +20,7 @@ namespace Requisições_Internas.Infra.Data.Features.Units
             throw new NotImplementedException();
         }
 
-        public long Delete(long id)
+        public bool Delete(long id)
         {
             throw new NotImplementedException();
         }

@@ -49,14 +49,23 @@ namespace Requisições_Internas.WinApp.Features.Providers
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            ProviderAddForm providerForm = new ProviderAddForm();
-            providerForm.Text = "Update";
-            var a = dtgProviders.CurrentRow.Cells[0];
-            //var provider = (Provider)dtgProviders.SelectedRows[0];
-            
-            //providerForm.SetProvider();
-
+            var a = dtgProviders.SelectedRows[0].Cells[4].Value;
+            ProviderAddForm providerForm = new ProviderAddForm(_providerService.GetById((long)a));
+            providerForm.Text = "Atualizar";
+            providerForm.btnAddProvider.Text = "Atualizar";
             providerForm.ShowDialog();
+
+            _providerService.Update(providerForm.Provider);
+            UpdateList();
+        }
+
+        private void btnDeleteProvider_Click(object sender, EventArgs e)
+        {
+            if (dtgProviders.SelectedRows.Count > 0)
+            {
+                _providerService.Delete((long)dtgProviders.SelectedRows[0].Cells[4].Value);
+                UpdateList();
+            }
         }
     }
 }
