@@ -21,7 +21,7 @@ namespace Requisições_Internas.Application.Features.Products
 
         public bool Delete(long id)
         {
-            throw new NotImplementedException();
+            return _productRepository.Delete(id);
         }
 
         public IEnumerable<Product> GetAll()
@@ -31,12 +31,12 @@ namespace Requisições_Internas.Application.Features.Products
 
         public Product GetById(long id)
         {
-            throw new NotImplementedException();
+            return _productRepository.GetById(id);
         }
 
         public bool Update(Product entity)
         {
-            throw new NotImplementedException();
+            return _productRepository.Update(entity);
         }
     }
 }

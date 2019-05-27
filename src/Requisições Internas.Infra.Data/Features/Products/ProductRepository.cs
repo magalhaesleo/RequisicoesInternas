@@ -25,7 +25,8 @@ namespace Requisições_Internas.Infra.Data.Features.Products
 
         public bool Delete(long id)
         {
-            throw new NotImplementedException();
+            _contextInternalRequisitions.Products.Remove(GetById(id));
+            return _contextInternalRequisitions.SaveChanges() != 0;
         }
 
         public IEnumerable<Product> GetAll()
@@ -35,12 +36,12 @@ namespace Requisições_Internas.Infra.Data.Features.Products
 
         public Product GetById(long id)
         {
-            throw new NotImplementedException();
+            return _contextInternalRequisitions.Products.Where(p => p.Id == id).FirstOrDefault();
         }
 
         public bool Update(Product entity)
         {
-            throw new NotImplementedException();
+            return _contextInternalRequisitions.SaveChanges() != 0;
         }
     }
 }

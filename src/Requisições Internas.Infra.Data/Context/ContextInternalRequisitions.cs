@@ -25,7 +25,7 @@ namespace Requisições_Internas.Infra.Data.Context
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = true;
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ContextInternalRequisitions, Configuration>());
+            Database.SetInitializer(new Configuration());
         }
         public ContextInternalRequisitions() : this("name=InternalRequisitionsDB")
         {

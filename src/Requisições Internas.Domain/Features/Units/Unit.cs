@@ -9,6 +9,10 @@ namespace Requisições_Internas.Domain.Features.Units
 {
     public class Unit : Entity
     {
+        public Unit()
+        {
+
+        }
         public string Name { get; set; }
 
         public override string ToString()

@@ -13,6 +13,8 @@ namespace Requisições_Internas.Infra.Data.Features.Products
         public ProductConfiguration()
         {
             ToTable("TBProducts");
+
+            HasRequired(p => p.Unit);
         }
     }
 }

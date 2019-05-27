@@ -18,7 +18,8 @@ namespace Requisições_Internas.WinApp.Features.Products
     {
         IUnitService _unitService;
         IProductService _productService;
-        public ProductAddForm(IUnitService unitService, IProductService productService)
+        Product _product;
+        public ProductAddForm(IUnitService unitService, IProductService productService, Product product = null)
         {
             InitializeComponent();
             _unitService = unitService;
@@ -26,7 +27,19 @@ namespace Requisições_Internas.WinApp.Features.Products
 
             cmbUnit.Items.AddRange(_unitService.GetAll().ToArray());
 
-            cmbUnit.SelectedIndex++;
+            if (product == null)
+            {
+                cmbUnit.SelectedIndex++;
+            }
+            else
+            {
+                _product = product;
+                txtName.Text = product.Name;
+                txtDescription.Text = product.Description;
+                cmbUnit.SelectedItem = product.Unit;
+                btnAddProduct.Text = "Atualizar";
+                this.Text = "Atualizar produto";
+            }
         }
 
         private void txtName_KeyUp(object sender, KeyEventArgs e)
@@ -61,13 +74,22 @@ namespace Requisições_Internas.WinApp.Features.Products
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            Product product = new Product();
-            product.Name = txtName.Text;
-            product.Description = txtDescription.Text;
-            product.Unit = (Unit)cmbUnit.SelectedItem;
+            _product = _product == null ? new Product() : _product;
+
+            _product.Name = txtName.Text;
+            _product.Description = txtDescription.Text;
+            _product.Unit = (Unit)cmbUnit.SelectedItem;
 
 
-            _productService.Add(product);
+            if (_product.Id > 0)
+            {
+                _productService.Update(_product);
+            }
+            else
+            {
+                _productService.Add(_product);
+            }
+            
 
             this.Close();
         }

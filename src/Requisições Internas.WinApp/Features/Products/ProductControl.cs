@@ -35,5 +35,25 @@ namespace Requisições_Internas.WinApp.Features.Products
         {
             this.dtgProducts.DataSource = _productService.GetAll().ToList();
         }
+
+        private void btnUpdateProduct_Click(object sender, EventArgs e)
+        {
+            if (dtgProducts.SelectedRows.Count > 0)
+            {
+                var product = _productService.GetById((long)dtgProducts.SelectedRows[0].Cells[4].Value);
+                ProductAddForm productAddForm = new ProductAddForm(_unitService, _productService, product);
+                productAddForm.ShowDialog();
+                UpdateList();
+            }
+        }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            if (dtgProducts.SelectedRows.Count > 0)
+            {
+                _productService.Delete((long)dtgProducts.SelectedRows[0].Cells[4].Value);
+                UpdateList();
+            }
+        }
     }
 }
