@@ -10,5 +10,6 @@ namespace Requisições_Internas.Application.Features.Products
 {
     public interface IProductService : IService<Product>
     {
+        IEnumerable<Product> GetByName(string word);
     }
 }

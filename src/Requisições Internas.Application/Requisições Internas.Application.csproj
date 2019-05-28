@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\IService.cs" />
+    <Compile Include="Features\Invoices\IInvoiceService.cs" />
+    <Compile Include="Features\Invoices\InvoiceService.cs" />
     <Compile Include="Features\Products\IProductService.cs" />
     <Compile Include="Features\Products\ProductService.cs" />
     <Compile Include="Features\Providers\IProviderService.cs" />

@@ -1,4 +1,5 @@
-﻿using Requisições_Internas.Application.Features.Products;
+﻿using Requisições_Internas.Application.Features.Invoices;
+using Requisições_Internas.Application.Features.Products;
 using Requisições_Internas.Application.Features.Providers;
 using Requisições_Internas.Application.Features.Units;
 using Requisições_Internas.Domain.Features.Products;
@@ -33,6 +34,7 @@ namespace Requisições_Internas.WinApp.IoC
             Container.Register<IUnitRepository, UnitRepository>(Lifestyle.Singleton);
             Container.Register<IProductRepository, ProductRepository>(Lifestyle.Singleton);
             Container.Register(() => new ContextInternalRequisitions(), Lifestyle.Singleton);
+            Container.Register<IInvoiceService, InvoiceService>(Lifestyle.Singleton);
 
             Container.Verify();
         }

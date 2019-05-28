@@ -9,5 +9,6 @@ namespace Requisições_Internas.Domain.Features.Products
 {
     public interface IProductRepository : IRepository<Product>
     {
+        IEnumerable<Product> GetName(string word);
     }
 }

@@ -34,6 +34,11 @@ namespace Requisições_Internas.Application.Features.Products
             return _productRepository.GetById(id);
         }
 
+        public IEnumerable<Product> GetByName(string word)
+        {
+            return _productRepository.GetName(word);
+        }
+
         public bool Update(Product entity)
         {
             return _productRepository.Update(entity);

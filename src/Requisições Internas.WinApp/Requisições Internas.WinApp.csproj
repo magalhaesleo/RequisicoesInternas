@@ -62,11 +62,23 @@
     <Compile Include="Features\Dashboard\DashBoardControl.Designer.cs">
       <DependentUpon>DashBoardControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Invoices\AddInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Invoices\AddInvoice.Designer.cs">
+      <DependentUpon>AddInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Invoices\InvoiceControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Features\Invoices\InvoiceControl.Designer.cs">
       <DependentUpon>InvoiceControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Invoices\ProductSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Invoices\ProductSelection.Designer.cs">
+      <DependentUpon>ProductSelection.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Orders\OrderControl.cs">
       <SubType>UserControl</SubType>
@@ -128,8 +140,14 @@
     <EmbeddedResource Include="Features\Dashboard\DashBoardControl.resx">
       <DependentUpon>DashBoardControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Invoices\AddInvoice.resx">
+      <DependentUpon>AddInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Invoices\InvoiceControl.resx">
       <DependentUpon>InvoiceControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Invoices\ProductSelection.resx">
+      <DependentUpon>ProductSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Orders\OrderControl.resx">
       <DependentUpon>OrderControl.cs</DependentUpon>

@@ -49,10 +49,14 @@ namespace Requisições_Internas.WinApp.Features.Products
 
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
+
             if (dtgProducts.SelectedRows.Count > 0)
             {
-                _productService.Delete((long)dtgProducts.SelectedRows[0].Cells[4].Value);
-                UpdateList();
+                if (MessageBox.Show("Tem Certeza que deseja excluir?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    _productService.Delete((long)dtgProducts.SelectedRows[0].Cells[4].Value);
+                    UpdateList();
+                }
             }
         }
     }

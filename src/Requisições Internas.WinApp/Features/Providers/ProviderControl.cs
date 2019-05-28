@@ -63,8 +63,11 @@ namespace Requisições_Internas.WinApp.Features.Providers
         {
             if (dtgProviders.SelectedRows.Count > 0)
             {
-                _providerService.Delete((long)dtgProviders.SelectedRows[0].Cells[4].Value);
-                UpdateList();
+                if (MessageBox.Show("Tem Certeza que deseja excluir?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    _providerService.Delete((long)dtgProviders.SelectedRows[0].Cells[4].Value);
+                    UpdateList();
+                }
             }
         }
     }

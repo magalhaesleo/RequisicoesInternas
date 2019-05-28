@@ -53,10 +53,10 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dashBoardToolStripMenuItem,
-            this.fornecedoresToolStripMenuItem,
-            this.notasFiscaisToolStripMenuItem,
-            this.produtosToolStripMenuItem,
             this.pedidosToolStripMenuItem,
+            this.notasFiscaisToolStripMenuItem,
+            this.fornecedoresToolStripMenuItem,
+            this.produtosToolStripMenuItem,
             this.usuariosToolStripMenuItem,
             this.relatoriosToolStripMenuItem,
             this.seusDadosToolStripMenuItem});
