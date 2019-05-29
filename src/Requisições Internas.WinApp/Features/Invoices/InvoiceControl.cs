@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Requisições_Internas.Application.Features.Invoices;
 using Requisições_Internas.Application.Features.Products;
+using Requisições_Internas.Application.Features.Providers;
 
 namespace Requisições_Internas.WinApp.Features.Invoices
 {
@@ -16,17 +17,26 @@ namespace Requisições_Internas.WinApp.Features.Invoices
     {
         IInvoiceService _invoiceService;
         IProductService _productService;
-        public InvoiceControl(IInvoiceService invoiceService, IProductService productService)
+        IProviderService _providerService;
+        public InvoiceControl(IInvoiceService invoiceService, IProductService productService, IProviderService providerService)
         {
             InitializeComponent();
             _invoiceService = invoiceService;
             _productService = productService;
+            _providerService = providerService;
+            UpdateList();
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            AddInvoice addInvoice = new AddInvoice(_invoiceService, _productService);
+            AddInvoice addInvoice = new AddInvoice(_invoiceService, _productService, _providerService);
             addInvoice.ShowDialog();
+            UpdateList();
+        }
+
+        void UpdateList()
+        {
+            dtgInvoices.DataSource = _invoiceService.GetAll().ToList();
         }
     }
 }

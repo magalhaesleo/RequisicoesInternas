@@ -34,9 +34,10 @@
             this.btnSelect = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgSelectedProducts = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemoveProduct = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvProductsFound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgSelectedProducts)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +58,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(504, 20);
             this.txtSearch.TabIndex = 1;
+            this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
             // btnSearch
             // 
@@ -98,14 +100,15 @@
             this.dtgSelectedProducts.Size = new System.Drawing.Size(585, 109);
             this.dtgSelectedProducts.TabIndex = 5;
             // 
-            // button1
+            // btnRemoveProduct
             // 
-            this.button1.Location = new System.Drawing.Point(539, 410);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Remover";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRemoveProduct.Location = new System.Drawing.Point(539, 410);
+            this.btnRemoveProduct.Name = "btnRemoveProduct";
+            this.btnRemoveProduct.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveProduct.TabIndex = 6;
+            this.btnRemoveProduct.Text = "Remover";
+            this.btnRemoveProduct.UseVisualStyleBackColor = true;
+            this.btnRemoveProduct.Click += new System.EventHandler(this.btnRemoveProduct_Click);
             // 
             // label2
             // 
@@ -125,14 +128,25 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Produtos Selecionados";
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(260, 436);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 9;
+            this.btnExit.Text = "Sair";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // ProductSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 471);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRemoveProduct);
             this.Controls.Add(this.dtgSelectedProducts);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSelect);
@@ -157,8 +171,9 @@
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgSelectedProducts;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRemoveProduct;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnExit;
     }
 }

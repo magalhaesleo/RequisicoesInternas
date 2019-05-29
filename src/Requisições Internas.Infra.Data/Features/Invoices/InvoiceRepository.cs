@@ -1,4 +1,5 @@
 ﻿using Requisições_Internas.Domain.Features.Invoices;
+using Requisições_Internas.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,18 @@ namespace Requisições_Internas.Infra.Data.Features.Invoices
 {
     public class InvoiceRepository : IInvoiceRepository
     {
+        ContextInternalRequisitions _contextInternalRequisitions;
+        public InvoiceRepository(ContextInternalRequisitions contextInternalRequisitions)
+        {
+            _contextInternalRequisitions = contextInternalRequisitions;
+        }
         public long Add(Invoice entity)
         {
-            throw new NotImplementedException();
+            _contextInternalRequisitions.Invoices.Add(entity);
+
+            _contextInternalRequisitions.SaveChanges();
+
+            return entity.Id;
         }
 
         public bool Delete(long id)
@@ -21,7 +31,7 @@ namespace Requisições_Internas.Infra.Data.Features.Invoices
 
         public IEnumerable<Invoice> GetAll()
         {
-            throw new NotImplementedException();
+            return _contextInternalRequisitions.Invoices;
         }
 
         public Invoice GetById(long id)

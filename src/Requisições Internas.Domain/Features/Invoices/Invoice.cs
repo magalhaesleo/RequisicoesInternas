@@ -12,7 +12,7 @@ namespace Requisições_Internas.Domain.Features.Invoices
 {
     public class Invoice : Entity
     {
-        public int Number { get; set; }
+        public string Number { get; set; }
         public string Sequence { get; set; }
         public decimal Value { get; set; }
         public DateTime Date { get; set; }

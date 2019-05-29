@@ -38,6 +38,7 @@
             // 
             // dtgInvoices
             // 
+            this.dtgInvoices.AllowUserToAddRows = false;
             this.dtgInvoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgInvoices.Location = new System.Drawing.Point(16, 110);
             this.dtgInvoices.MultiSelect = false;

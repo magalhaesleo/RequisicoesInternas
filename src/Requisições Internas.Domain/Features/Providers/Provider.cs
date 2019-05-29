@@ -19,5 +19,10 @@ namespace Requisições_Internas.Domain.Features.Providers
             if (string.IsNullOrEmpty(Name))
                 throw new Exception("O nome não pode ser vazio");
         }
+
+        public override string ToString()
+        {
+            return Name + " " + CNPJ;
+        }
     }
 }

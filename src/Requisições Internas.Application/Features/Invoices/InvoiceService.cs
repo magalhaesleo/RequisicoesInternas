@@ -9,9 +9,14 @@ namespace Requisições_Internas.Application.Features.Invoices
 {
     public class InvoiceService : IInvoiceService
     {
+        IInvoiceRepository _invoiceRepository;
+        public InvoiceService(IInvoiceRepository invoiceRepository)
+        {
+            _invoiceRepository = invoiceRepository;
+        }
         public long Add(Invoice entity)
         {
-            throw new NotImplementedException();
+            return _invoiceRepository.Add(entity);
         }
 
         public bool Delete(long id)
@@ -21,7 +26,7 @@ namespace Requisições_Internas.Application.Features.Invoices
 
         public IEnumerable<Invoice> GetAll()
         {
-            throw new NotImplementedException();
+            return _invoiceRepository.GetAll();
         }
 
         public Invoice GetById(long id)

@@ -1,7 +1,9 @@
 ﻿using Requisições_Internas.Application.Features.Invoices;
 using Requisições_Internas.Application.Features.Products;
+using Requisições_Internas.Application.Features.Providers;
 using Requisições_Internas.Domain.Features.Invoices;
 using Requisições_Internas.Domain.Features.Products;
+using Requisições_Internas.Domain.Features.Providers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,25 +20,61 @@ namespace Requisições_Internas.WinApp.Features.Invoices
     {
         IInvoiceService _invoiceService;
         IProductService _productService;
+        IProviderService _providerService;
         Invoice _invoice;
-        public AddInvoice(IInvoiceService invoiceService, IProductService productService, Invoice invoice = null)
+        Provider _provider;
+        public AddInvoice(IInvoiceService invoiceService, IProductService productService, IProviderService providerService, Invoice invoice = null)
         {
             InitializeComponent();
             _invoiceService = invoiceService;
             _productService = productService;
+            _providerService = providerService;
             _invoice = invoice == null ? new Invoice() : invoice;
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            var products = dtgProducts.Rows.Cast<Product>();
+            List<Product> products = new List<Product>();
+            for (int i = 0; i < dtgProducts.Rows.Count; i++)
+            {
+                products.Add(_productService.GetById((long)dtgProducts.Rows[i].Cells[4].Value));
+            }
+           
             ProductSelection productSelection = new ProductSelection(_productService, products);
             productSelection.ShowDialog();
+            dtgProducts.DataSource = productSelection.SelectedProducts;
         }
 
         private void btnSaveInvoice_Click(object sender, EventArgs e)
         {
-            _invoice.Date = dateInvoice.MinDate;
+            _invoice.Date = dateInvoice.Value;
+            _invoice.Number = txtInvoice.Text;
+            List<Product> products = new List<Product>();
+            for (int i = 0; i < dtgProducts.Rows.Count; i++)
+            {
+                products.Add(_productService.GetById((long)dtgProducts.Rows[i].Cells[4].Value));
+            }
+            _invoice.Products = products;
+            _invoice.Provider = _provider;
+            _invoice.Value = decimal.Parse(txtValue.Text);
+            _invoice.Sequence = txtSerie.Text;
+
+            _invoiceService.Add(_invoice);
+
+            this.Close();
         }
+
+        private void btnSelectProvider_Click(object sender, EventArgs e)
+        {
+            ProviderSelection providerSelection = new ProviderSelection(_providerService);
+            providerSelection.ShowDialog();
+            _provider = providerSelection.GetSelectedProvider();
+
+            if (_provider != null)
+            {
+                txtCNPJ.Text = _provider.CNPJ;
+            }
+        }
+
     }
 }
