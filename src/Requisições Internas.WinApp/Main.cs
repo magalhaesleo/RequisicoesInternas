@@ -1,9 +1,10 @@
-﻿using Requisições_Internas.WinApp.Features.Invoices;
-using Requisições_Internas.WinApp.Features.Orders;
+﻿using NLog;
+using Requisições_Internas.WinApp.Features.Invoices;
 using Requisições_Internas.WinApp.Features.Personal_Data;
 using Requisições_Internas.WinApp.Features.Products;
 using Requisições_Internas.WinApp.Features.Providers;
 using Requisições_Internas.WinApp.Features.Reports;
+using Requisições_Internas.WinApp.Features.Requests;
 using Requisições_Internas.WinApp.Features.Users;
 using System;
 using System.Collections.Generic;
@@ -22,17 +23,20 @@ namespace Requisições_Internas.WinApp
         private readonly ProductControl _productControl;
         private readonly ProviderControl _providerControl;
         private readonly InvoiceControl _invoiceControl;
-        private readonly OrderControl _orderControl;
+        private readonly RequestControl _requestControl;
         private readonly UsersControl _usersControl;
         private readonly ReportControl _reportsControl;
         private readonly PersonalDataControl _personalDataControl;
+        Logger _logger;
 
-        public Main(ProviderControl providerControl, InvoiceControl invoiceControl, OrderControl orderControl, UsersControl usersControl, ReportControl reportsControl, ProductControl productControl, PersonalDataControl personalDataControl)
+        public Main(ProviderControl providerControl, InvoiceControl invoiceControl, RequestControl requestControl, UsersControl usersControl, ReportControl reportsControl, ProductControl productControl, PersonalDataControl personalDataControl)
         {
+            _logger = LogManager.GetCurrentClassLogger();
+            _logger.Debug("Iniciando Menu Principal");
             InitializeComponent();
             _providerControl = providerControl;
             _invoiceControl = invoiceControl;
-            _orderControl = orderControl;
+            _requestControl = requestControl;
             _productControl = productControl;
             _usersControl = usersControl;
             _reportsControl = reportsControl;
@@ -41,6 +45,7 @@ namespace Requisições_Internas.WinApp
 
         private void ChangeControl(UserControl control)
         {
+            _logger.Debug("Alterando control");
             mainPanel.Controls.Clear();
             mainPanel.Controls.Add(control);
         }
@@ -63,7 +68,7 @@ namespace Requisições_Internas.WinApp
 
         private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ChangeControl(_orderControl);
+            ChangeControl(_requestControl);
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)

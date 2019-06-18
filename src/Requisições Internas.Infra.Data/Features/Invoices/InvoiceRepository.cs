@@ -2,6 +2,7 @@
 using Requisições_Internas.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,8 @@ namespace Requisições_Internas.Infra.Data.Features.Invoices
 
         public Invoice GetById(long id)
         {
-            throw new NotImplementedException();
+            return _contextInternalRequisitions.Invoices.Where(i => i.Id == id)
+                .Include(i => i.Products).FirstOrDefault();
         }
 
         public bool Update(Invoice entity)

@@ -30,7 +30,6 @@
         {
             this.dtgInvoices = new System.Windows.Forms.DataGridView();
             this.btnAddNew = new System.Windows.Forms.Button();
-            this.btnDeleteProvider = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgInvoices)).BeginInit();
@@ -58,15 +57,6 @@
             this.btnAddNew.UseVisualStyleBackColor = true;
             this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
-            // btnDeleteProvider
-            // 
-            this.btnDeleteProvider.Location = new System.Drawing.Point(709, 139);
-            this.btnDeleteProvider.Name = "btnDeleteProvider";
-            this.btnDeleteProvider.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteProvider.TabIndex = 31;
-            this.btnDeleteProvider.Text = "Excluir";
-            this.btnDeleteProvider.UseVisualStyleBackColor = true;
-            // 
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(709, 110);
@@ -75,6 +65,7 @@
             this.btnUpdate.TabIndex = 30;
             this.btnUpdate.Text = "Editar";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label1
             // 
@@ -92,7 +83,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddNew);
-            this.Controls.Add(this.btnDeleteProvider);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dtgInvoices);
             this.Name = "InvoiceControl";
@@ -107,7 +97,6 @@
 
         private System.Windows.Forms.DataGridView dtgInvoices;
         private System.Windows.Forms.Button btnAddNew;
-        private System.Windows.Forms.Button btnDeleteProvider;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label1;
     }

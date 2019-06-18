@@ -38,5 +38,12 @@ namespace Requisições_Internas.WinApp.Features.Invoices
         {
             dtgInvoices.DataSource = _invoiceService.GetAll().ToList();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            var invoice = _invoiceService.GetById((long)dtgInvoices.SelectedRows[0].Cells[6].Value);
+            AddInvoice addInvoice = new AddInvoice(_invoiceService, _productService, _providerService, invoice);
+            addInvoice.ShowDialog();
+        }
     }
 }

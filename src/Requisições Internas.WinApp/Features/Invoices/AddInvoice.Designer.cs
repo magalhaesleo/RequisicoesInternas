@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtInvoice = new System.Windows.Forms.TextBox();
             this.txtSerie = new System.Windows.Forms.TextBox();
-            this.txtValue = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtCNPJ = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.btnSaveInvoice = new System.Windows.Forms.Button();
             this.btnSelectProvider = new System.Windows.Forms.Button();
+            this.maksValue = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +63,7 @@
             // 
             this.txtInvoice.Location = new System.Drawing.Point(15, 91);
             this.txtInvoice.Name = "txtInvoice";
-            this.txtInvoice.Size = new System.Drawing.Size(134, 20);
+            this.txtInvoice.Size = new System.Drawing.Size(137, 20);
             this.txtInvoice.TabIndex = 1;
             // 
             // txtSerie
@@ -72,13 +72,6 @@
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(215, 20);
             this.txtSerie.TabIndex = 2;
-            // 
-            // txtValue
-            // 
-            this.txtValue.Location = new System.Drawing.Point(15, 175);
-            this.txtValue.Name = "txtValue";
-            this.txtValue.Size = new System.Drawing.Size(137, 20);
-            this.txtValue.TabIndex = 3;
             // 
             // txtName
             // 
@@ -165,7 +158,7 @@
             this.dtgProducts.Name = "dtgProducts";
             this.dtgProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgProducts.Size = new System.Drawing.Size(693, 209);
-            this.dtgProducts.TabIndex = 15;
+            this.dtgProducts.TabIndex = 15;            
             // 
             // label8
             // 
@@ -206,11 +199,21 @@
             this.btnSelectProvider.UseVisualStyleBackColor = true;
             this.btnSelectProvider.Click += new System.EventHandler(this.btnSelectProvider_Click);
             // 
+            // maksValue
+            // 
+            this.maksValue.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.maksValue.Location = new System.Drawing.Point(15, 178);
+            this.maksValue.Mask = "$99999";
+            this.maksValue.Name = "maksValue";
+            this.maksValue.Size = new System.Drawing.Size(137, 20);
+            this.maksValue.TabIndex = 21;
+            // 
             // AddInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 479);
+            this.Controls.Add(this.maksValue);
             this.Controls.Add(this.btnSelectProvider);
             this.Controls.Add(this.btnSaveInvoice);
             this.Controls.Add(this.btnAddProduct);
@@ -225,7 +228,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCNPJ);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtValue);
             this.Controls.Add(this.txtSerie);
             this.Controls.Add(this.txtInvoice);
             this.Controls.Add(this.label1);
@@ -243,7 +245,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtInvoice;
         private System.Windows.Forms.TextBox txtSerie;
-        private System.Windows.Forms.TextBox txtValue;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtCNPJ;
         private System.Windows.Forms.Label label2;
@@ -258,5 +259,6 @@
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.Button btnSaveInvoice;
         private System.Windows.Forms.Button btnSelectProvider;
+        private System.Windows.Forms.MaskedTextBox maksValue;
     }
 }

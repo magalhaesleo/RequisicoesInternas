@@ -1,4 +1,7 @@
-﻿using Requisições_Internas.WinApp.IoC;
+﻿using NLog;
+using NLog.Config;
+using NLog.Targets;
+using Requisições_Internas.WinApp.IoC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +18,10 @@ namespace Requisições_Internas.WinApp
         [STAThread]
         static void Main()
         {
+            var config = new LoggingConfiguration();
+            var logFile = new FileTarget("Arquivo de Log") { FileName = "LogRequisicoesInternas.txt", ArchiveEvery = FileArchivePeriod.Minute };
+            config.AddRule(LogLevel.Debug, LogLevel.Fatal,logFile);
+            NLog.LogManager.Configuration = config;
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 

@@ -45,6 +45,7 @@
     <Compile Include="Base\IRepository.cs" />
     <Compile Include="Features\Invoices\IInvoiceRepository.cs" />
     <Compile Include="Features\Invoices\Invoice.cs" />
+    <Compile Include="Features\ProductRequests\ProductRequest.cs" />
     <Compile Include="Features\Products\IProductRepository.cs" />
     <Compile Include="Features\Products\Product.cs" />
     <Compile Include="Features\Providers\IProviderRepository.cs" />
@@ -56,5 +57,6 @@
     <Compile Include="Features\Units\Unit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

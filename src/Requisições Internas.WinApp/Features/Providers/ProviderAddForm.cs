@@ -23,7 +23,7 @@ namespace Requisições_Internas.WinApp.Features.Providers
         {
             Provider = provider;
             txtName.Text = Provider.Name;
-            txtCNPJ.Text = Provider.CNPJ;
+            mskCNPJ.Text = Provider.CNPJ;
             txtTelephone.Text = Provider.Telephone;
             cbEnabled.Checked = Provider.Enabled;
         }
@@ -61,7 +61,7 @@ namespace Requisições_Internas.WinApp.Features.Providers
         public void SetProvider(Provider provider)
         {
             txtName.Text = provider.Name;
-            txtCNPJ.Text = provider.CNPJ;
+            mskCNPJ.Text = provider.CNPJ;
             txtTelephone.Text = provider.Telephone;
             cbEnabled.Checked = provider.Enabled;
         }
@@ -71,7 +71,7 @@ namespace Requisições_Internas.WinApp.Features.Providers
             Provider = Provider == null ? new Provider() : Provider;
 
             Provider.Name = txtName.Text;
-            Provider.CNPJ = txtCNPJ.Text;
+            Provider.CNPJ = mskCNPJ.Text;
             Provider.Telephone = txtTelephone.Text;
             Provider.Enabled = cbEnabled.Checked;
 

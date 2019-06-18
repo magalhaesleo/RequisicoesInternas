@@ -30,6 +30,18 @@ namespace Requisições_Internas.WinApp.Features.Invoices
             _productService = productService;
             _providerService = providerService;
             _invoice = invoice == null ? new Invoice() : invoice;
+
+            if (invoice != null)
+            {
+                dateInvoice.Value = _invoice.Date;
+                txtInvoice.Text = _invoice.Sequence;
+                List<Product> products = new List<Product>();
+                dtgProducts.DataSource = _invoice.Products;
+                maksValue.Text = _invoice.Value.ToString();
+                txtSerie.Text = _invoice.Sequence;
+                txtCNPJ.Text = _invoice.Provider.CNPJ;
+                txtName.Text = _invoice.Name;
+            }
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -49,6 +61,7 @@ namespace Requisições_Internas.WinApp.Features.Invoices
         {
             _invoice.Date = dateInvoice.Value;
             _invoice.Number = txtInvoice.Text;
+            _invoice.Name = txtName.Text;
             List<Product> products = new List<Product>();
             for (int i = 0; i < dtgProducts.Rows.Count; i++)
             {
@@ -56,7 +69,9 @@ namespace Requisições_Internas.WinApp.Features.Invoices
             }
             _invoice.Products = products;
             _invoice.Provider = _provider;
-            _invoice.Value = decimal.Parse(txtValue.Text);
+            maksValue.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            _invoice.Value = decimal.Parse(maksValue.Text);
+            maksValue.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
             _invoice.Sequence = txtSerie.Text;
 
             _invoiceService.Add(_invoice);
@@ -75,6 +90,5 @@ namespace Requisições_Internas.WinApp.Features.Invoices
                 txtCNPJ.Text = _provider.CNPJ;
             }
         }
-
     }
 }

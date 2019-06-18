@@ -31,7 +31,7 @@ namespace Requisições_Internas.Application.Features.Invoices
 
         public Invoice GetById(long id)
         {
-            throw new NotImplementedException();
+            return _invoiceRepository.GetById(id);
         }
 
         public bool Update(Invoice entity)

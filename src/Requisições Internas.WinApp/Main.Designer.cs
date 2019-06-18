@@ -31,10 +31,10 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dashBoardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notasFiscaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notasFiscaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatoriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seusDadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,33 +72,36 @@
             this.dashBoardToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.dashBoardToolStripMenuItem.Text = "DashBoard";
             // 
-            // fornecedoresToolStripMenuItem
+            // pedidosToolStripMenuItem
             // 
-            this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
-            this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
+            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.pedidosToolStripMenuItem.Text = "Requisições";
+            this.pedidosToolStripMenuItem.Click += new System.EventHandler(this.pedidosToolStripMenuItem_Click);
             // 
             // notasFiscaisToolStripMenuItem
             // 
             this.notasFiscaisToolStripMenuItem.Name = "notasFiscaisToolStripMenuItem";
+            this.notasFiscaisToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
             this.notasFiscaisToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.notasFiscaisToolStripMenuItem.Text = "Notas Fiscais";
             this.notasFiscaisToolStripMenuItem.Click += new System.EventHandler(this.notasFiscaisToolStripMenuItem_Click);
             // 
+            // fornecedoresToolStripMenuItem
+            // 
+            this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
+            this.fornecedoresToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
+            this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
+            // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
+            this.produtosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.P)));
             this.produtosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.produtosToolStripMenuItem.Text = "Produtos";
             this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
-            // 
-            // pedidosToolStripMenuItem
-            // 
-            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.pedidosToolStripMenuItem.Text = "Pedidos";
-            this.pedidosToolStripMenuItem.Click += new System.EventHandler(this.pedidosToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 

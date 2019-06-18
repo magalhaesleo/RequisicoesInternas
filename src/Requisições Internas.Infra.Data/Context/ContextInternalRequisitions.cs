@@ -13,6 +13,7 @@ using Requisições_Internas.Infra.Data.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,29 @@ namespace Requisições_Internas.Infra.Data.Context
 
             base.OnModelCreating(modelBuilder);
             
+        }
+
+        public override int SaveChanges()
+        {
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                string msg = "";
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    msg = string.Format("Entidade do tipo \"{0}\" no estado \"{1}\" tem os seguintes erros de validação:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        msg += string.Format("- Property: \"{0}\", Erro: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw new Exception(msg);
+            }
         }
 
     }

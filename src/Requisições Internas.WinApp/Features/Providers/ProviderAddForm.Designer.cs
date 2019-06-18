@@ -34,13 +34,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAddProvider = new System.Windows.Forms.Button();
-            this.txtCNPJ = new System.Windows.Forms.TextBox();
             this.cbEnabled = new System.Windows.Forms.CheckBox();
+            this.mskCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(23, 26);
+            this.txtName.MaxLength = 50;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(308, 20);
             this.txtName.TabIndex = 0;
@@ -49,6 +50,7 @@
             // txtTelephone
             // 
             this.txtTelephone.Location = new System.Drawing.Point(23, 133);
+            this.txtTelephone.MaxLength = 50;
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(308, 20);
             this.txtTelephone.TabIndex = 2;
@@ -91,13 +93,6 @@
             this.btnAddProvider.UseVisualStyleBackColor = true;
             this.btnAddProvider.Click += new System.EventHandler(this.btnAddProvider_Click);
             // 
-            // txtCNPJ
-            // 
-            this.txtCNPJ.Location = new System.Drawing.Point(23, 76);
-            this.txtCNPJ.Name = "txtCNPJ";
-            this.txtCNPJ.Size = new System.Drawing.Size(308, 20);
-            this.txtCNPJ.TabIndex = 1;
-            // 
             // cbEnabled
             // 
             this.cbEnabled.AutoSize = true;
@@ -110,13 +105,21 @@
             this.cbEnabled.Text = "Habilitado?";
             this.cbEnabled.UseVisualStyleBackColor = true;
             // 
+            // mskCNPJ
+            // 
+            this.mskCNPJ.Location = new System.Drawing.Point(23, 85);
+            this.mskCNPJ.Mask = "99.999.999/9999-99";
+            this.mskCNPJ.Name = "mskCNPJ";
+            this.mskCNPJ.Size = new System.Drawing.Size(308, 20);
+            this.mskCNPJ.TabIndex = 6;
+            // 
             // ProviderAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(356, 225);
+            this.Controls.Add(this.mskCNPJ);
             this.Controls.Add(this.cbEnabled);
-            this.Controls.Add(this.txtCNPJ);
             this.Controls.Add(this.btnAddProvider);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -142,8 +145,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCNPJ;
         private System.Windows.Forms.CheckBox cbEnabled;
         internal System.Windows.Forms.Button btnAddProvider;
+        private System.Windows.Forms.MaskedTextBox mskCNPJ;
     }
 }

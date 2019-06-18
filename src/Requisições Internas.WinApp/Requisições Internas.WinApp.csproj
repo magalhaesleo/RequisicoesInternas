@@ -39,12 +39,20 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.6.4\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleInjector, Version=4.5.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.4.5.1\lib\net45\SimpleInjector.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -86,12 +94,6 @@
     <Compile Include="Features\Invoices\ProviderSelection.Designer.cs">
       <DependentUpon>ProviderSelection.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\Orders\OrderControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Features\Orders\OrderControl.Designer.cs">
-      <DependentUpon>OrderControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Features\Personal Data\PersonalDataControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +130,18 @@
     <Compile Include="Features\Reports\ReportControl.Designer.cs">
       <DependentUpon>ReportControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Requests\AddRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Requests\AddRequest.Designer.cs">
+      <DependentUpon>AddRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Requests\RequestControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Requests\RequestControl.Designer.cs">
+      <DependentUpon>RequestControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Users\UsersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,9 +172,6 @@
     <EmbeddedResource Include="Features\Invoices\ProviderSelection.resx">
       <DependentUpon>ProviderSelection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\Orders\OrderControl.resx">
-      <DependentUpon>OrderControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Features\Personal Data\PersonalDataControl.resx">
       <DependentUpon>PersonalDataControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +189,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Reports\ReportControl.resx">
       <DependentUpon>ReportControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Requests\AddRequest.resx">
+      <DependentUpon>AddRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Requests\RequestControl.resx">
+      <DependentUpon>RequestControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Users\UsersControl.resx">
       <DependentUpon>UsersControl.cs</DependentUpon>
