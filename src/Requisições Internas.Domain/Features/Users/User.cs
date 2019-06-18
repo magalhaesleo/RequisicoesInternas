@@ -1,4 +1,5 @@
 ﻿using Requisições_Internas.Domain.Base;
+using Requisições_Internas.Domain.Object_Values;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Requisições_Internas.Domain.Features.Users
         public string CellPhone { get; set; }
         public string Email { get; set; }
         public string Department { get; set; }
-        public string Group { get; set; }
+        public UserGroup Group { get; set; }
         public string Password { get; set; }
         public bool Enabled { get; set; }
     }

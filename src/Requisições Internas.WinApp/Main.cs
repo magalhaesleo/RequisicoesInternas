@@ -1,4 +1,5 @@
 ﻿using NLog;
+using Requisições_Internas.Domain.Features.Users;
 using Requisições_Internas.WinApp.Features.Invoices;
 using Requisições_Internas.WinApp.Features.Personal_Data;
 using Requisições_Internas.WinApp.Features.Products;
@@ -28,6 +29,7 @@ namespace Requisições_Internas.WinApp
         private readonly ReportControl _reportsControl;
         private readonly PersonalDataControl _personalDataControl;
         Logger _logger;
+        User _user;
 
         public Main(ProviderControl providerControl, InvoiceControl invoiceControl, RequestControl requestControl, UsersControl usersControl, ReportControl reportsControl, ProductControl productControl, PersonalDataControl personalDataControl)
         {
@@ -41,6 +43,11 @@ namespace Requisições_Internas.WinApp
             _usersControl = usersControl;
             _reportsControl = reportsControl;
             _personalDataControl = personalDataControl;
+        }
+
+        public void SetUser(User user)
+        {
+            _user = user;
         }
 
         private void ChangeControl(UserControl control)

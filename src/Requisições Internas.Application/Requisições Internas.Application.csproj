@@ -52,6 +52,8 @@
     <Compile Include="Features\Requests\RequestService.cs" />
     <Compile Include="Features\Units\UnitService.cs" />
     <Compile Include="Features\Units\IUnitService.cs" />
+    <Compile Include="Features\Users\IUserService.cs" />
+    <Compile Include="Features\Users\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

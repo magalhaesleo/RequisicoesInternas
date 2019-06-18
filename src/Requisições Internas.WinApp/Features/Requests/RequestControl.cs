@@ -34,6 +34,7 @@ namespace Requisições_Internas.WinApp.Features.Requests
         void UpdateListRequests()
         {
             dtgProducts.DataSource = _requestService.GetAll().ToList();
+            dtgProducts.Columns["ProductsRequest"].Visible = false;
         }
     }
 }

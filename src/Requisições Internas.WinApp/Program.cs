@@ -1,6 +1,8 @@
 ﻿using NLog;
 using NLog.Config;
 using NLog.Targets;
+using Requisições_Internas.Domain.Features.Users;
+using Requisições_Internas.WinApp.Features.Users;
 using Requisições_Internas.WinApp.IoC;
 using System;
 using System.Collections.Generic;
@@ -26,7 +28,15 @@ namespace Requisições_Internas.WinApp
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 
             SimpleInjectorContainer.RegisterInstances();
-            System.Windows.Forms.Application.Run(SimpleInjectorContainer.Container.GetInstance<Main>());
+            UserLogin userLogin = SimpleInjectorContainer.Container.GetInstance<UserLogin>();
+            userLogin.ShowDialog();
+
+            if (userLogin.Authenticated)
+            {
+                Main main = SimpleInjectorContainer.Container.GetInstance<Main>();
+                main.SetUser(userLogin.User);
+                System.Windows.Forms.Application.Run(main);
+            }
         }
     }
 }

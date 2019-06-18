@@ -13,6 +13,7 @@ namespace Requisições_Internas.Infra.Data.Features.Requests
         public RequestConfiguration()
         {
             ToTable("TBRequests");
+            HasRequired(r => r.User);
         }
     }
 }

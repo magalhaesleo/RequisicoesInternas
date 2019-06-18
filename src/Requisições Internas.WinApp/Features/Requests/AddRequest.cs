@@ -105,6 +105,8 @@ namespace Requisições_Internas.WinApp.Features.Requests
             if (productRequests.Count > 0)
             {
                 request.DateRequest = DateTime.Now;
+                request.AcceptanceDate = null;
+                request.DeliveryDate = null;
                 _requestService.Add(request);
             }
 

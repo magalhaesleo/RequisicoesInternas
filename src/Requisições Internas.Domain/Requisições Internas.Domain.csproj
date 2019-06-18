@@ -53,8 +53,11 @@
     <Compile Include="Features\Requests\IRequestRepository.cs" />
     <Compile Include="Features\Requests\Request.cs" />
     <Compile Include="Features\Units\IUnitRepository.cs" />
+    <Compile Include="Features\Users\IUserRepository.cs" />
     <Compile Include="Features\Users\User.cs" />
     <Compile Include="Features\Units\Unit.cs" />
+    <Compile Include="Object Values\Status.cs" />
+    <Compile Include="Object Values\UserGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
