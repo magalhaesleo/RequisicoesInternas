@@ -45,6 +45,7 @@
             this.dtgvProductsFound.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvProductsFound.Size = new System.Drawing.Size(580, 236);
             this.dtgvProductsFound.TabIndex = 1;
+            this.dtgvProductsFound.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dtgvProductsFound_EditingControlShowing);
             // 
             // label1
             // 

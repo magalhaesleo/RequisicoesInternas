@@ -96,8 +96,10 @@ namespace Requisições_Internas.WinApp.Features.Requests
                 catch (Exception)
                 {
                     MessageBox.Show("campo quantidade aceita apenas numeros");
+                    return;
                 }
             }
+
             request.ProductsRequest = productRequests;
 
             if (productRequests.Count > 0)
@@ -107,6 +109,27 @@ namespace Requisições_Internas.WinApp.Features.Requests
             }
 
             this.Close();
+        }
+
+        private void dtgvProductsFound_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(ColumnQuantity_KeyPress);
+            if (dtgvProductsFound.CurrentCell.ColumnIndex == 3) //Desired Column
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(ColumnQuantity_KeyPress);
+                }
+            }
+        }
+
+        private void ColumnQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
