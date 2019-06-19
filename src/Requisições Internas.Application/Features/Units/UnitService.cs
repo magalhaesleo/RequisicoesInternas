@@ -1,5 +1,7 @@
 ﻿using Requisições_Internas.Application.Base;
+using Requisições_Internas.Domain.Base;
 using Requisições_Internas.Domain.Features.Units;
+using Requisições_Internas.Infra.Exports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +23,11 @@ namespace Requisições_Internas.Application.Features.Units
         }
 
         public bool Delete(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool GeneratePDFReport(string filePath)
         {
             throw new NotImplementedException();
         }

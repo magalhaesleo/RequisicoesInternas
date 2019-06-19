@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Requisições_Internas.Domain.Base;
 using Requisições_Internas.Domain.Features.Requests;
+using Requisições_Internas.Infra.Exports;
 
 namespace Requisições_Internas.Application.Features.Requests
 {
@@ -22,6 +24,12 @@ namespace Requisições_Internas.Application.Features.Requests
         public bool Delete(long id)
         {
             throw new NotImplementedException();
+        }
+
+        public bool GeneratePDFReport(string filePath)
+        {
+            PDFExport export = new PDFExport();
+            return export.GenerateRequestReport(_requestRepository, filePath);
         }
 
         public IEnumerable<Request> GetAll()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Requisições_Internas.Domain.Base;
 using Requisições_Internas.Domain.Features.Products;
 
 namespace Requisições_Internas.Application.Features.Products
@@ -22,6 +23,11 @@ namespace Requisições_Internas.Application.Features.Products
         public bool Delete(long id)
         {
             return _productRepository.Delete(id);
+        }
+
+        public bool GeneratePDFReport(string filePath)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Product> GetAll()

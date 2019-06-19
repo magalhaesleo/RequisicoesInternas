@@ -61,6 +61,10 @@
       <Project>{d77bfc1e-287c-49be-9db7-e1f9ee9797be}</Project>
       <Name>Requisições Internas.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Requisições Internas.Infra\Requisições Internas.Infra.csproj">
+      <Project>{6901CCE7-0A02-487C-A43B-FB6B54BA048F}</Project>
+      <Name>Requisições Internas.Infra</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

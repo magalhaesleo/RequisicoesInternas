@@ -14,5 +14,6 @@ namespace Requisições_Internas.Application.Base
         bool Update(T entity);
         bool Delete(long id);
         IEnumerable<T> GetAll();
+        bool GeneratePDFReport(string filePath);
     }
 }
