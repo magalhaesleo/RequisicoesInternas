@@ -5,15 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Requisições_Internas.Domain.Base;
 using Requisições_Internas.Domain.Features.Users;
+using Requisições_Internas.Infra.Exports;
 
 namespace Requisições_Internas.Application.Features.Users
 {
     public class UserService : IUserService
     {
-        IUserRepository _userRepository;
-        public UserService(IUserRepository userRepository)
+        readonly IUserRepository _userRepository;
+        readonly PDFExport _pdfExport;
+        public UserService(IUserRepository userRepository, PDFExport pdfExport)
         {
             _userRepository = userRepository;
+            _pdfExport = pdfExport;
         }
 
         public long Add(User entity)
@@ -33,7 +36,7 @@ namespace Requisições_Internas.Application.Features.Users
 
         public bool GeneratePDFReport(string filePath)
         {
-            throw new NotImplementedException();
+            return _pdfExport.GenerateUsersReport(_userRepository, filePath);
         }
 
         public IEnumerable<User> GetAll()

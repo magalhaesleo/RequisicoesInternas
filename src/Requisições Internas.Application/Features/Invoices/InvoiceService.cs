@@ -5,15 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Requisições_Internas.Domain.Base;
 using Requisições_Internas.Domain.Features.Invoices;
+using Requisições_Internas.Infra.Exports;
 
 namespace Requisições_Internas.Application.Features.Invoices
 {
     public class InvoiceService : IInvoiceService
     {
-        IInvoiceRepository _invoiceRepository;
-        public InvoiceService(IInvoiceRepository invoiceRepository)
+        readonly IInvoiceRepository _invoiceRepository;
+        readonly PDFExport _pdfExport;
+        public InvoiceService(IInvoiceRepository invoiceRepository, PDFExport pdfExport)
         {
             _invoiceRepository = invoiceRepository;
+            _pdfExport = pdfExport;
         }
         public long Add(Invoice entity)
         {
@@ -27,7 +30,7 @@ namespace Requisições_Internas.Application.Features.Invoices
 
         public bool GeneratePDFReport(string filePath)
         {
-            throw new NotImplementedException();
+            return _pdfExport.GenerateInvoicesReport(_invoiceRepository, filePath);
         }
 
         public IEnumerable<Invoice> GetAll()

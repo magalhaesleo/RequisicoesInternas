@@ -24,9 +24,9 @@ namespace Requisições_Internas.Infra.Data.Migrations
 
             List<User> users = new List<User>();
 
-            users.Add(new User() { Name = "Leonardo", Password = "leonardo", Group = UserGroup.Normal, Birth = new DateTime(1996, 4, 10) });
-            users.Add(new User() { Name = "almox", Password = "almox",  Group = UserGroup.Almox, Birth = new DateTime(1996, 4, 10) });
-            users.Add(new User() { Name = "admin", Password = "admin",  Group = UserGroup.Admin, Birth = new DateTime(1996, 4, 10) });
+            users.Add(new User() { Name = "Leonardo", Password = "leonardo", Group = UserGroup.Normal, Birth = new DateTime(1996, 4, 10), Department = "Recepção" });
+            users.Add(new User() { Name = "almox", Password = "almox",  Group = UserGroup.Almox, Birth = new DateTime(1996, 4, 10), Department = "Almoxarifado" });
+            users.Add(new User() { Name = "admin", Password = "admin",  Group = UserGroup.Admin, Birth = new DateTime(1996, 4, 10), Department = "Administradores" });
 
             context.Users.AddRange(users);
 

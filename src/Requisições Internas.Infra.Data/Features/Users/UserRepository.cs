@@ -37,7 +37,7 @@ namespace Requisições_Internas.Infra.Data.Features.Users
 
         public IEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
+            return _contextInternalRequisitions.Users;
         }
 
         public User GetById(long id)

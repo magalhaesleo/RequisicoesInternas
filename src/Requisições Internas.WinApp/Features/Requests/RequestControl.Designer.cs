@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnUpdateRequisition = new System.Windows.Forms.Button();
@@ -38,25 +36,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Pesquisar";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(17, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(240, 20);
-            this.textBox1.TabIndex = 29;
-            // 
             // btnAddNew
             // 
-            this.btnAddNew.Location = new System.Drawing.Point(687, 98);
+            this.btnAddNew.Location = new System.Drawing.Point(687, 41);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(94, 23);
             this.btnAddNew.TabIndex = 28;
@@ -68,7 +50,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 13);
+            this.label1.Location = new System.Drawing.Point(10, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 25);
             this.label1.TabIndex = 27;
@@ -76,7 +58,7 @@
             // 
             // btnUpdateRequisition
             // 
-            this.btnUpdateRequisition.Location = new System.Drawing.Point(687, 127);
+            this.btnUpdateRequisition.Location = new System.Drawing.Point(687, 70);
             this.btnUpdateRequisition.Name = "btnUpdateRequisition";
             this.btnUpdateRequisition.Size = new System.Drawing.Size(94, 23);
             this.btnUpdateRequisition.TabIndex = 25;
@@ -87,17 +69,17 @@
             // dtgProducts
             // 
             this.dtgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgProducts.Location = new System.Drawing.Point(17, 98);
+            this.dtgProducts.Location = new System.Drawing.Point(15, 41);
             this.dtgProducts.MultiSelect = false;
             this.dtgProducts.Name = "dtgProducts";
             this.dtgProducts.ReadOnly = true;
             this.dtgProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgProducts.Size = new System.Drawing.Size(664, 304);
+            this.dtgProducts.Size = new System.Drawing.Size(666, 361);
             this.dtgProducts.TabIndex = 24;
             // 
             // btnUpdateStatus
             // 
-            this.btnUpdateStatus.Location = new System.Drawing.Point(687, 156);
+            this.btnUpdateStatus.Location = new System.Drawing.Point(687, 99);
             this.btnUpdateStatus.Name = "btnUpdateStatus";
             this.btnUpdateStatus.Size = new System.Drawing.Size(94, 23);
             this.btnUpdateStatus.TabIndex = 31;
@@ -110,8 +92,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnUpdateStatus);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnUpdateRequisition);
@@ -125,9 +105,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnAddNew;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnUpdateRequisition;

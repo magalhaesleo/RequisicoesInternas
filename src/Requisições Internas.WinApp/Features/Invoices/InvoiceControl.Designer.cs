@@ -39,19 +39,19 @@
             // 
             this.dtgInvoices.AllowUserToAddRows = false;
             this.dtgInvoices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgInvoices.Location = new System.Drawing.Point(16, 110);
+            this.dtgInvoices.Location = new System.Drawing.Point(15, 38);
             this.dtgInvoices.MultiSelect = false;
             this.dtgInvoices.Name = "dtgInvoices";
             this.dtgInvoices.ReadOnly = true;
             this.dtgInvoices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgInvoices.Size = new System.Drawing.Size(683, 304);
+            this.dtgInvoices.Size = new System.Drawing.Size(669, 376);
             this.dtgInvoices.TabIndex = 25;
             // 
             // btnAddNew
             // 
-            this.btnAddNew.Location = new System.Drawing.Point(664, 57);
+            this.btnAddNew.Location = new System.Drawing.Point(690, 38);
             this.btnAddNew.Name = "btnAddNew";
-            this.btnAddNew.Size = new System.Drawing.Size(120, 23);
+            this.btnAddNew.Size = new System.Drawing.Size(94, 23);
             this.btnAddNew.TabIndex = 32;
             this.btnAddNew.Text = "Adicionar Novo";
             this.btnAddNew.UseVisualStyleBackColor = true;
@@ -59,9 +59,9 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(709, 110);
+            this.btnUpdate.Location = new System.Drawing.Point(690, 67);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(94, 23);
             this.btnUpdate.TabIndex = 30;
             this.btnUpdate.Text = "Editar";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -71,7 +71,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 35);
+            this.label1.Location = new System.Drawing.Point(10, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 25);
             this.label1.TabIndex = 33;

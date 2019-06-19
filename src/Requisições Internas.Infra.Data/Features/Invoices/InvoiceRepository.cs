@@ -32,7 +32,7 @@ namespace Requisições_Internas.Infra.Data.Features.Invoices
 
         public IEnumerable<Invoice> GetAll()
         {
-            return _contextInternalRequisitions.Invoices;
+            return _contextInternalRequisitions.Invoices.Include(i => i.Products);
         }
 
         public Invoice GetById(long id)

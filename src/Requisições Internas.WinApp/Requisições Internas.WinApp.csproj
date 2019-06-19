@@ -257,6 +257,10 @@
       <Project>{F67662DC-6487-4417-B7D8-FAD4D5D7EA61}</Project>
       <Name>Requisições Internas.Infra.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Requisições Internas.Infra\Requisições Internas.Infra.csproj">
+      <Project>{6901CCE7-0A02-487C-A43B-FB6B54BA048F}</Project>
+      <Name>Requisições Internas.Infra</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

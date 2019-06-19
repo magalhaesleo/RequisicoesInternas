@@ -5,15 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Requisições_Internas.Domain.Base;
 using Requisições_Internas.Domain.Features.Products;
+using Requisições_Internas.Infra.Exports;
 
 namespace Requisições_Internas.Application.Features.Products
 {
     public class ProductService : IProductService
     {
-        IProductRepository _productRepository;
-        public ProductService(IProductRepository productRepository)
+        readonly IProductRepository _productRepository;
+        readonly PDFExport _pdfExport;
+        public ProductService(IProductRepository productRepository, PDFExport pdfExport)
         {
             _productRepository = productRepository;
+            _pdfExport = pdfExport;
         }
         public long Add(Product entity)
         {
@@ -27,7 +30,7 @@ namespace Requisições_Internas.Application.Features.Products
 
         public bool GeneratePDFReport(string filePath)
         {
-            throw new NotImplementedException();
+            return _pdfExport.GenerateProductsReport(_productRepository, filePath);
         }
 
         public IEnumerable<Product> GetAll()

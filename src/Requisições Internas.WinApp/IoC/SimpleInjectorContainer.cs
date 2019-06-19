@@ -17,6 +17,7 @@ using Requisições_Internas.Infra.Data.Features.Providers;
 using Requisições_Internas.Infra.Data.Features.Requests;
 using Requisições_Internas.Infra.Data.Features.Units;
 using Requisições_Internas.Infra.Data.Features.Users;
+using Requisições_Internas.Infra.Exports;
 using Requisições_Internas.WinApp.Features.Products;
 using SimpleInjector;
 using System;
@@ -48,6 +49,7 @@ namespace Requisições_Internas.WinApp.IoC
             Container.Register<IRequestRepository, RequestRepository>(Lifestyle.Singleton);
             Container.Register<IUserService, UserService>(Lifestyle.Singleton);
             Container.Register<IUserRepository, UserRepository>(Lifestyle.Singleton);
+            Container.Register(() => new PDFExport(), Lifestyle.Singleton);
 
             Container.Verify();
         }

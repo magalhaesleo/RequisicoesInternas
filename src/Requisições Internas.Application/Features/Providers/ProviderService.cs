@@ -5,15 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Requisições_Internas.Domain.Base;
 using Requisições_Internas.Domain.Features.Providers;
+using Requisições_Internas.Infra.Exports;
 
 namespace Requisições_Internas.Application.Features.Providers
 {
     public class ProviderService : IProviderService
     {
-        private IProviderRepository _providerRepository;
-        public ProviderService(IProviderRepository providerRepository)
+        private readonly IProviderRepository _providerRepository;
+        readonly PDFExport _pdfExport;
+        public ProviderService(IProviderRepository providerRepository, PDFExport pdfExport)
         {
             _providerRepository = providerRepository;
+            _pdfExport = pdfExport;
         }
         public long Add(Provider provider)
         {
@@ -27,7 +30,7 @@ namespace Requisições_Internas.Application.Features.Providers
 
         public bool GeneratePDFReport(string filePath)
         {
-            throw new NotImplementedException();
+            return _pdfExport.GenerateProvidersReport(_providerRepository, filePath);
         }
 
         public IEnumerable<Provider> GetAll()

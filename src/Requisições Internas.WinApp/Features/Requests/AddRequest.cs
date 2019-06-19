@@ -60,9 +60,10 @@ namespace Requisições_Internas.WinApp.Features.Requests
             DataGridViewTextBoxColumn quantity = new DataGridViewTextBoxColumn()
             {
                 Name = "quantity",
-                HeaderText = "Quantidade",
-                ReadOnly = false
+                HeaderText = "Quantidade"                
             };
+
+            quantity.ReadOnly = _request != null && _request.Status != Domain.Object_Values.Status.Aberto;
 
             dtgvProductsFound.Columns.Add(productName);
             dtgvProductsFound.Columns.Add(description);

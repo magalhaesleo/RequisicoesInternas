@@ -11,10 +11,12 @@ namespace Requisições_Internas.Application.Features.Requests
 {
     public class RequestService : IRequestService
     {
-        IRequestRepository _requestRepository;
-        public RequestService(IRequestRepository requestRepository)
+        readonly IRequestRepository _requestRepository;
+        readonly PDFExport _pdfExport;
+        public RequestService(IRequestRepository requestRepository, PDFExport pdfExport)
         {
             _requestRepository = requestRepository;
+            _pdfExport = pdfExport;
         }
         public long Add(Request entity)
         {
@@ -28,8 +30,7 @@ namespace Requisições_Internas.Application.Features.Requests
 
         public bool GeneratePDFReport(string filePath)
         {
-            PDFExport export = new PDFExport();
-            return export.GenerateRequestReport(_requestRepository, filePath);
+            return _pdfExport.GenerateRequestReport(_requestRepository, filePath);
         }
 
         public IEnumerable<Request> GetAll()
