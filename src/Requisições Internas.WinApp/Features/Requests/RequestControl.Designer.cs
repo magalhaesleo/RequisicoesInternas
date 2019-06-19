@@ -68,6 +68,7 @@
             // 
             // dtgProducts
             // 
+            this.dtgProducts.AllowUserToAddRows = false;
             this.dtgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgProducts.Location = new System.Drawing.Point(15, 41);
             this.dtgProducts.MultiSelect = false;

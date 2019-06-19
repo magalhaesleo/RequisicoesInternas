@@ -21,13 +21,16 @@ namespace Requisições_Internas.WinApp.Features.Requests
         IRequestService _requestService;
         IUserService _userService;
         User _user;
+        BindingList<Request> _requests = new BindingList<Request>();
         public RequestControl(IProductService productService, IRequestService requestService, IUserService userService)
         {
             InitializeComponent();
             _productService = productService;
             _requestService = requestService;
             _userService = userService;
-            //UpdateListRequests();
+            dtgProducts.DataSource = _requests;
+            dtgProducts.Columns["ProductsRequest"].Visible = false;
+            dtgProducts.Columns["Id"].Visible = false;
         }
 
         public void SetUser(User user)
@@ -48,18 +51,25 @@ namespace Requisições_Internas.WinApp.Features.Requests
 
         public void UpdateListRequests()
         {
+            List<Request> requests = new List<Request>();
             if (_user.Group == Domain.Object_Values.UserGroup.Normal)
             {
-                dtgProducts.DataSource = _requestService.GetAll()
+                requests.AddRange( _requestService.GetAll()
                     .Where(r => r.User.Id == _user.Id)
-                    .ToList();
+                    .ToList());
             }
             else
             {
-                dtgProducts.DataSource = _requestService.GetAll().ToList();
+                requests.AddRange(_requestService.GetAll().ToList());
             }
-            
-            dtgProducts.Columns["ProductsRequest"].Visible = false;
+
+            _requests.Clear();
+            foreach (var item in requests)
+            {
+                _requests.Add(item);
+            }
+
+            _requests.ResetBindings();
         }
 
         private void btnUpdateRequisition_Click(object sender, EventArgs e)

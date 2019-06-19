@@ -123,12 +123,20 @@ namespace Requisições_Internas.WinApp.Features.Requests
             {
                 Request request = _request != null ? _request : new Request();
                 request.ProductsRequest = productRequests;
-                request.Status = Domain.Object_Values.Status.Aberto;
-                request.DateRequest = DateTime.Now;
-                request.AcceptanceDate = null;
-                request.DeliveryDate = null;
-                request.User = _user;
-                _requestService.Add(request);
+
+                if (_request != null)
+                {
+                    _requestService.Update(request);
+                }
+                else
+                {
+                    request.Status = Domain.Object_Values.Status.Aberto;
+                    request.DateRequest = DateTime.Now;
+                    request.AcceptanceDate = null;
+                    request.DeliveryDate = null;
+                    request.User = _user;
+                    _requestService.Add(request);
+                }
             }
 
             this.Close();
