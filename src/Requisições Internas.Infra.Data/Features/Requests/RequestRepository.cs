@@ -2,6 +2,7 @@
 using Requisições_Internas.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,17 +32,23 @@ namespace Requisições_Internas.Infra.Data.Features.Requests
 
         public IEnumerable<Request> GetAll()
         {
-            return _contextInternalRequisitions.Requests;
+            return _contextInternalRequisitions.Requests
+                .Include(r => r.User)
+                .Include(r => r.ProductsRequest);
         }
 
         public Request GetById(long id)
         {
-            throw new NotImplementedException();
+            return _contextInternalRequisitions.Requests
+                .Where(r => r.Id == id)
+                .Include(r => r.User)
+                .Include(r => r.ProductsRequest)
+                .FirstOrDefault();
         }
 
         public bool Update(Request entity)
         {
-            throw new NotImplementedException();
+            return _contextInternalRequisitions.SaveChanges() != 0;
         }
     }
 }

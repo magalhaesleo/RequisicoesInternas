@@ -48,6 +48,23 @@ namespace Requisições_Internas.WinApp
         public void SetUser(User user)
         {
             _user = user;
+            _requestControl.SetUser(_user);
+
+            if (_user.Group == Domain.Object_Values.UserGroup.Normal)
+            {
+                foreach (ToolStripItem item in menuStrip1.Items)
+                {
+                    item.Visible = false;
+                }
+
+                menuStrip1.Items["pedidosToolStripMenuItem"].Visible = true;
+                menuStrip1.Items["seusDadosToolStripMenuItem"].Visible = true;
+            }
+
+            if (_user.Group == Domain.Object_Values.UserGroup.Almox)
+            {
+                menuStrip1.Items["relatoriosToolStripMenuItem"].Visible = false;
+            }
         }
 
         private void ChangeControl(UserControl control)
@@ -76,6 +93,7 @@ namespace Requisições_Internas.WinApp
         private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangeControl(_requestControl);
+            _requestControl.UpdateListRequests();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)

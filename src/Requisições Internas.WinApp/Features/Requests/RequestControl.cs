@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Requisições_Internas.Application.Features.Products;
 using Requisições_Internas.Application.Features.Requests;
+using Requisições_Internas.Domain.Features.Users;
+using Requisições_Internas.Domain.Features.Requests;
+using Requisições_Internas.Application.Features.Users;
 
 namespace Requisições_Internas.WinApp.Features.Requests
 {
@@ -16,25 +19,66 @@ namespace Requisições_Internas.WinApp.Features.Requests
     {
         IProductService _productService;
         IRequestService _requestService;
-        public RequestControl(IProductService productService, IRequestService requestService)
+        IUserService _userService;
+        User _user;
+        public RequestControl(IProductService productService, IRequestService requestService, IUserService userService)
         {
             InitializeComponent();
             _productService = productService;
             _requestService = requestService;
-            UpdateListRequests();
+            _userService = userService;
+            //UpdateListRequests();
+        }
+
+        public void SetUser(User user)
+        {
+            _user = user;
+            if (_user.Group == Domain.Object_Values.UserGroup.Normal)
+            {
+                btnUpdateStatus.Visible = false;
+            }
         }
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
-            AddRequest addRequest = new AddRequest(_productService, _requestService);
+            AddRequest addRequest = new AddRequest(_productService, _requestService, _user);
             addRequest.ShowDialog();
             UpdateListRequests();
         }
 
-        void UpdateListRequests()
+        public void UpdateListRequests()
         {
-            dtgProducts.DataSource = _requestService.GetAll().ToList();
+            if (_user.Group == Domain.Object_Values.UserGroup.Normal)
+            {
+                dtgProducts.DataSource = _requestService.GetAll()
+                    .Where(r => r.User.Id == _user.Id)
+                    .ToList();
+            }
+            else
+            {
+                dtgProducts.DataSource = _requestService.GetAll().ToList();
+            }
+            
             dtgProducts.Columns["ProductsRequest"].Visible = false;
+        }
+
+        private void btnUpdateRequisition_Click(object sender, EventArgs e)
+        {
+            if (dtgProducts.SelectedRows.Count > 0)
+            {
+                Request request = _requestService.GetById(long.Parse(dtgProducts.SelectedRows[0].Cells["id"].Value.ToString()));
+                AddRequest addRequest = new AddRequest(_productService, _requestService, _user, request);
+                addRequest.Text = "Editar Requisição";
+                addRequest.ShowDialog();
+                UpdateListRequests();
+            }
+        }
+
+        private void btnUpdateStatus_Click(object sender, EventArgs e)
+        {
+            Request request = _requestService.GetById(long.Parse(dtgProducts.SelectedRows[0].Cells["id"].Value.ToString()));
+            UpdateRequestStatus updateRequestStatus = new UpdateRequestStatus(_requestService, _userService, request);
+            updateRequestStatus.ShowDialog();
         }
     }
 }

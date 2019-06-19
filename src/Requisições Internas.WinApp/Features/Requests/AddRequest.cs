@@ -2,6 +2,7 @@
 using Requisições_Internas.Application.Features.Requests;
 using Requisições_Internas.Domain.Features.ProductRequests;
 using Requisições_Internas.Domain.Features.Requests;
+using Requisições_Internas.Domain.Features.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,13 +19,17 @@ namespace Requisições_Internas.WinApp.Features.Requests
     {
         IProductService _productService;
         IRequestService _requestService;
-        public AddRequest(IProductService productService, IRequestService requestService)
+        User _user;
+        Request _request;
+        public AddRequest(IProductService productService, IRequestService requestService, User user, Request request = null)
         {
             InitializeComponent();
             _productService = productService;
             _requestService = requestService;
-           
-            DataGridViewTextBoxColumn description = new DataGridViewTextBoxColumn()
+            _user = user;
+            _request = request;
+
+             DataGridViewTextBoxColumn description = new DataGridViewTextBoxColumn()
             {
                 Name = "description",
                 HeaderText = "Descrição",
@@ -65,10 +70,21 @@ namespace Requisições_Internas.WinApp.Features.Requests
             dtgvProductsFound.Columns.Add(quantity);
             dtgvProductsFound.Columns.Add(productUnit);
 
-            foreach (var item in productService.GetAll().ToList())
+            if (_request != null)
             {
-                dtgvProductsFound.Rows.Add(item.Name, item.Description, item.Id, 0, item.Unit);
+                foreach (var item in _request.ProductsRequest)
+                {
+                    dtgvProductsFound.Rows.Add(item.Product.Name, item.Product.Description, item.Product.Id, item.Quantity, item.Product.Unit);
+                }
             }
+            else
+            {
+                foreach (var item in productService.GetAll().ToList())
+                {
+                    dtgvProductsFound.Rows.Add(item.Name, item.Description, item.Id, 0, item.Unit);
+                }
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -78,7 +94,7 @@ namespace Requisições_Internas.WinApp.Features.Requests
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            Request request = new Request();
+            
             List < ProductRequest > productRequests= new List<ProductRequest>();
 
             foreach (DataGridViewRow item in dtgvProductsFound.Rows)
@@ -100,13 +116,17 @@ namespace Requisições_Internas.WinApp.Features.Requests
                 }
             }
 
-            request.ProductsRequest = productRequests;
+         
 
             if (productRequests.Count > 0)
             {
+                Request request = _request != null ? _request : new Request();
+                request.ProductsRequest = productRequests;
+                request.Status = Domain.Object_Values.Status.Aberto;
                 request.DateRequest = DateTime.Now;
                 request.AcceptanceDate = null;
                 request.DeliveryDate = null;
+                request.User = _user;
                 _requestService.Add(request);
             }
 

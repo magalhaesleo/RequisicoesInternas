@@ -21,5 +21,9 @@ namespace Requisições_Internas.Domain.Features.Users
         public UserGroup Group { get; set; }
         public string Password { get; set; }
         public bool Enabled { get; set; }
+        public override string ToString()
+        {
+            return "Usuario: " + Name;
+        }
     }
 }

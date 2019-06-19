@@ -9,7 +9,9 @@ namespace Requisições_Internas.Domain.Object_Values
     public enum Status
     {
         Aprovado,
+        Entregue,
         Negado,
-        Editado
+        EntregueEditado,
+        Aberto
     }
 }

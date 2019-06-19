@@ -142,6 +142,12 @@
     <Compile Include="Features\Requests\RequestControl.Designer.cs">
       <DependentUpon>RequestControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Requests\UpdateRequestStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Requests\UpdateRequestStatus.Designer.cs">
+      <DependentUpon>UpdateRequestStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Users\UserLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Requests\RequestControl.resx">
       <DependentUpon>RequestControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Requests\UpdateRequestStatus.resx">
+      <DependentUpon>UpdateRequestStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Users\UserLogin.resx">
       <DependentUpon>UserLogin.cs</DependentUpon>

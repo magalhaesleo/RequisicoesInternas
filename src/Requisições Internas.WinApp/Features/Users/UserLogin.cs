@@ -1,4 +1,5 @@
 ﻿using Requisições_Internas.Application.Features.Users;
+using Requisições_Internas.Domain.Features.Requests;
 using Requisições_Internas.Domain.Features.Users;
 using System;
 using System.Collections.Generic;
@@ -17,16 +18,39 @@ namespace Requisições_Internas.WinApp.Features.Users
         IUserService _userService;
         public bool Authenticated { get; private set; } = false;
         public User User { get; private set; }
+        Request _request;
         public UserLogin(IUserService userService)
         {
             InitializeComponent();
             _userService = userService;
         }
 
+        public void SetRequest(Request request)
+        {
+            _request = request;
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string user = txtUser.Text;
             string password = txtPassword.Text;
+
+            if (_request != null)
+            {
+                Authenticated = true;
+                if (_request.User.Name != user || _request.User.Password != password)
+                {
+                    txtUser.Text = "";
+                    txtPassword.Text = "";
+                    txtUser.Focus();
+                    Authenticated = false;
+                    MessageBox.Show("Dados invalidos");
+                    return;
+                }
+
+                this.Close();
+            }
+
             User userAuth = _userService.Authenticate(user, password);
 
             if (userAuth != null)

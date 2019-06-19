@@ -13,7 +13,7 @@ namespace Requisições_Internas.Domain.Features.Requests
     public class Request: Entity
     {
         public User User { get; set; }
-        public IEnumerable<ProductRequest> ProductsRequest { get; set; }
+        public ICollection<ProductRequest> ProductsRequest { get; set; }
         public DateTime DateRequest { get; set; }
         public Status Status { get; set; }
         public DateTime ? AcceptanceDate { get; set; }

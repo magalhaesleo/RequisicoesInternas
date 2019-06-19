@@ -9,6 +9,7 @@ namespace Requisições_Internas.Domain.Object_Values
     public enum UserGroup
     {
         Admin,
+        Almox,
         Normal
     }
 }

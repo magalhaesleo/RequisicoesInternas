@@ -31,12 +31,12 @@ namespace Requisições_Internas.Application.Features.Requests
 
         public Request GetById(long id)
         {
-            throw new NotImplementedException();
+            return _requestRepository.GetById(id);
         }
 
         public bool Update(Request entity)
         {
-            throw new NotImplementedException();
+            return _requestRepository.Update(entity);
         }
     }
 }
