@@ -36,15 +36,18 @@
             this.users = new System.Windows.Forms.TabPage();
             this.nf = new System.Windows.Forms.TabPage();
             this.pedidos = new System.Windows.Forms.TabPage();
-            this.initialDate = new System.Windows.Forms.DateTimePicker();
-            this.finalDate = new System.Windows.Forms.DateTimePicker();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.cbAllStates = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.finalDate = new System.Windows.Forms.DateTimePicker();
+            this.initialDate = new System.Windows.Forms.DateTimePicker();
             this.tabReports = new System.Windows.Forms.TabControl();
+            this.cmbProductUnits = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.products.SuspendLayout();
             this.pedidos.SuspendLayout();
             this.tabReports.SuspendLayout();
             this.SuspendLayout();
@@ -78,16 +81,18 @@
             // 
             this.providers.Location = new System.Drawing.Point(4, 22);
             this.providers.Name = "providers";
-            this.providers.Size = new System.Drawing.Size(468, 190);
+            this.providers.Size = new System.Drawing.Size(468, 153);
             this.providers.TabIndex = 4;
             this.providers.Text = "Fornecedores";
             this.providers.UseVisualStyleBackColor = true;
             // 
             // products
             // 
+            this.products.Controls.Add(this.label6);
+            this.products.Controls.Add(this.cmbProductUnits);
             this.products.Location = new System.Drawing.Point(4, 22);
             this.products.Name = "products";
-            this.products.Size = new System.Drawing.Size(468, 190);
+            this.products.Size = new System.Drawing.Size(468, 153);
             this.products.TabIndex = 3;
             this.products.Text = "Produtos";
             this.products.UseVisualStyleBackColor = true;
@@ -96,7 +101,7 @@
             // 
             this.users.Location = new System.Drawing.Point(4, 22);
             this.users.Name = "users";
-            this.users.Size = new System.Drawing.Size(468, 190);
+            this.users.Size = new System.Drawing.Size(468, 153);
             this.users.TabIndex = 2;
             this.users.Text = "Usuários";
             this.users.UseVisualStyleBackColor = true;
@@ -106,7 +111,7 @@
             this.nf.Location = new System.Drawing.Point(4, 22);
             this.nf.Name = "nf";
             this.nf.Padding = new System.Windows.Forms.Padding(3);
-            this.nf.Size = new System.Drawing.Size(468, 190);
+            this.nf.Size = new System.Drawing.Size(468, 153);
             this.nf.TabIndex = 1;
             this.nf.Text = "Notas Fiscais";
             this.nf.UseVisualStyleBackColor = true;
@@ -129,67 +134,6 @@
             this.pedidos.Text = "Pedidos";
             this.pedidos.UseVisualStyleBackColor = true;
             // 
-            // initialDate
-            // 
-            this.initialDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.initialDate.Location = new System.Drawing.Point(9, 52);
-            this.initialDate.Name = "initialDate";
-            this.initialDate.Size = new System.Drawing.Size(200, 20);
-            this.initialDate.TabIndex = 1;
-            // 
-            // finalDate
-            // 
-            this.finalDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.finalDate.Location = new System.Drawing.Point(231, 52);
-            this.finalDate.Name = "finalDate";
-            this.finalDate.Size = new System.Drawing.Size(200, 20);
-            this.finalDate.TabIndex = 2;
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(9, 98);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(121, 21);
-            this.cmbStatus.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Inicial";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(228, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Final";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Data Requisição";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 82);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Status";
-            // 
             // cbAllStates
             // 
             this.cbAllStates.AutoSize = true;
@@ -200,6 +144,67 @@
             this.cbAllStates.Text = "Todos os Status";
             this.cbAllStates.UseVisualStyleBackColor = true;
             this.cbAllStates.CheckedChanged += new System.EventHandler(this.cbAllStates_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Status";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Data Requisição";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(228, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Final";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Inicial";
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(9, 98);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(121, 21);
+            this.cmbStatus.TabIndex = 3;
+            // 
+            // finalDate
+            // 
+            this.finalDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.finalDate.Location = new System.Drawing.Point(231, 52);
+            this.finalDate.Name = "finalDate";
+            this.finalDate.Size = new System.Drawing.Size(200, 20);
+            this.finalDate.TabIndex = 2;
+            // 
+            // initialDate
+            // 
+            this.initialDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.initialDate.Location = new System.Drawing.Point(9, 52);
+            this.initialDate.Name = "initialDate";
+            this.initialDate.Size = new System.Drawing.Size(200, 20);
+            this.initialDate.TabIndex = 1;
             // 
             // tabReports
             // 
@@ -214,6 +219,24 @@
             this.tabReports.Size = new System.Drawing.Size(476, 179);
             this.tabReports.TabIndex = 0;
             // 
+            // cmbProductUnits
+            // 
+            this.cmbProductUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProductUnits.FormattingEnabled = true;
+            this.cmbProductUnits.Location = new System.Drawing.Point(3, 26);
+            this.cmbProductUnits.Name = "cmbProductUnits";
+            this.cmbProductUnits.Size = new System.Drawing.Size(121, 21);
+            this.cmbProductUnits.TabIndex = 4;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(0, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Unidade:";
+            // 
             // ReportControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,6 +246,8 @@
             this.Controls.Add(this.btnGenerateReport);
             this.Name = "ReportControl";
             this.Size = new System.Drawing.Size(800, 426);
+            this.products.ResumeLayout(false);
+            this.products.PerformLayout();
             this.pedidos.ResumeLayout(false);
             this.pedidos.PerformLayout();
             this.tabReports.ResumeLayout(false);
@@ -249,5 +274,7 @@
         private System.Windows.Forms.DateTimePicker finalDate;
         private System.Windows.Forms.DateTimePicker initialDate;
         private System.Windows.Forms.TabControl tabReports;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbProductUnits;
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Requisições_Internas.Domain.Base;
 using Requisições_Internas.Domain.Features.Products;
+using Requisições_Internas.Domain.Features.Units;
 using Requisições_Internas.Infra.Exports;
 
 namespace Requisições_Internas.Application.Features.Products
@@ -31,6 +32,11 @@ namespace Requisições_Internas.Application.Features.Products
         public bool GeneratePDFReport(string filePath)
         {
             return _pdfExport.GenerateProductsReport(_productRepository, filePath);
+        }
+
+        public bool GeneratePDFReport(Unit selectedItem, string fileName)
+        {
+            return _pdfExport.GenerateProductsReport(_productRepository, selectedItem, fileName);
         }
 
         public IEnumerable<Product> GetAll()

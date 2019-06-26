@@ -5,6 +5,7 @@ using Requisições_Internas.Domain.Features.Invoices;
 using Requisições_Internas.Domain.Features.Products;
 using Requisições_Internas.Domain.Features.Providers;
 using Requisições_Internas.Domain.Features.Requests;
+using Requisições_Internas.Domain.Features.Units;
 using Requisições_Internas.Domain.Features.Users;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,26 @@ namespace Requisições_Internas.Infra.Exports
                     p.SetMarginLeft(100);
                     document.Add(p);
                 }
+            }
+
+            document.Close();
+
+            return true;
+        }
+
+        public bool GenerateProductsReport(IProductRepository productRepository, Unit selectedItem, object filePath)
+        {
+            PdfWriter writer = new PdfWriter(filePath + ".pdf", new WriterProperties().SetPdfVersion(PdfVersion.PDF_2_0));
+            PdfDocument pdfDocument = new PdfDocument(writer);
+            pdfDocument.SetTagged();
+            Document document = new Document(pdfDocument);
+            document.Add(new Paragraph("Relatorio Produtos"));
+
+            foreach (var item in productRepository.GetAll()
+                .Where(p => p.Unit.Id == selectedItem.Id)
+                .ToList())
+            {
+                document.Add(new Paragraph("ID: " + item.Id + " Nome: " + item.Name + " Unidade: " + item.Unit + " Descrição: " + item.Description));
             }
 
             document.Close();
