@@ -33,7 +33,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblUser = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtUser
@@ -81,21 +81,21 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Senha";
             // 
-            // label3
+            // lblUser
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(168, 73);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Usuario";
+            this.lblUser.AutoSize = true;
+            this.lblUser.Location = new System.Drawing.Point(168, 73);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(43, 13);
+            this.lblUser.TabIndex = 5;
+            this.lblUser.Text = "Usuario";
             // 
             // UserLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 298);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblUser);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblTitle);
@@ -113,12 +113,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label lblTitle;
+        public System.Windows.Forms.Label lblUser;
+        public System.Windows.Forms.TextBox txtUser;
     }
 }

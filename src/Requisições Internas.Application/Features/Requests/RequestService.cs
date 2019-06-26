@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Requisições_Internas.Domain.Base;
 using Requisições_Internas.Domain.Features.Requests;
+using Requisições_Internas.Domain.Object_Values;
 using Requisições_Internas.Infra.Exports;
 
 namespace Requisições_Internas.Application.Features.Requests
@@ -30,7 +31,17 @@ namespace Requisições_Internas.Application.Features.Requests
 
         public bool GeneratePDFReport(string filePath)
         {
-            return _pdfExport.GenerateRequestReport(_requestRepository, filePath);
+            throw new NotImplementedException();
+        }
+
+        public bool GeneratePDFReport(DateTime initialDate, DateTime finalDate, Status status, string filePath)
+        {
+            return _pdfExport.GenerateRequestReport(_requestRepository, initialDate, finalDate, status, filePath);
+        }
+
+        public bool GeneratePDFReport(DateTime initialDate, DateTime finalDate, string fileName)
+        {
+            return _pdfExport.GenerateRequestReport(_requestRepository, initialDate, finalDate, fileName);
         }
 
         public IEnumerable<Request> GetAll()

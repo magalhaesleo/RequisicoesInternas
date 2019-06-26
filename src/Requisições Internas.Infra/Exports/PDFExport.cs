@@ -40,6 +40,59 @@ namespace Requisições_Internas.Infra.Exports
             return true;
         }
 
+        public bool GenerateRequestReport(IRequestRepository requestRepository, DateTime initialDate, DateTime finalDate, string filePath)
+        {
+            PdfWriter writer = new PdfWriter(filePath + ".pdf", new WriterProperties().SetPdfVersion(PdfVersion.PDF_2_0));
+            PdfDocument pdfDocument = new PdfDocument(writer);
+            pdfDocument.SetTagged();
+            Document document = new Document(pdfDocument);
+            document.Add(new Paragraph("Relatorio Requisições"));
+
+            foreach (var item in requestRepository.GetAll()
+                .Where(r => r.DateRequest >= initialDate && r.DateRequest <= finalDate)
+                .ToList())
+            {
+                document.Add(new Paragraph("ID: " + item.Id + " Data requisição: " + item.DateRequest + " Status: " + item.Status + " Usuario: " + item.User.Name));
+                foreach (var productsRequest in item.ProductsRequest)
+                {
+                    var p = new Paragraph("Produto: " + productsRequest.Product.Name + " Descrição: " + productsRequest.Product.Description + " Quantidade: " + productsRequest.Quantity);
+                    p.SetMarginLeft(100);
+                    document.Add(p);
+                }
+            }
+
+            document.Close();
+
+            return true;
+        }
+
+        public bool GenerateRequestReport(IRequestRepository requestRepository, DateTime initialDate, DateTime finalDate, Domain.Object_Values.Status status, string filePath)
+        {
+            PdfWriter writer = new PdfWriter(filePath + ".pdf", new WriterProperties().SetPdfVersion(PdfVersion.PDF_2_0));
+            PdfDocument pdfDocument = new PdfDocument(writer);
+            pdfDocument.SetTagged();
+            Document document = new Document(pdfDocument);
+            document.Add(new Paragraph("Relatorio Requisições"));
+
+            foreach (var item in requestRepository.GetAll()
+                .Where(r => r.DateRequest >= initialDate && r.DateRequest <= finalDate)
+                .Where(r => r.Status == status)
+                .ToList())
+            {
+                document.Add(new Paragraph("ID: " + item.Id + " Data requisição: " + item.DateRequest + " Status: " + item.Status + " Usuario: " + item.User.Name));
+                foreach (var productsRequest in item.ProductsRequest)
+                {
+                    var p = new Paragraph("Produto: " + productsRequest.Product.Name + " Descrição: " + productsRequest.Product.Description + " Quantidade: " + productsRequest.Quantity);
+                    p.SetMarginLeft(100);
+                    document.Add(p);
+                }
+            }
+
+            document.Close();
+
+            return true;
+        }
+
         public bool GenerateProvidersReport(IProviderRepository providerRepository, string filePath)
         {
             PdfWriter writer = new PdfWriter(filePath + ".pdf", new WriterProperties().SetPdfVersion(PdfVersion.PDF_2_0));

@@ -33,6 +33,7 @@
             this.btnUpdateRequisition = new System.Windows.Forms.Button();
             this.dtgProducts = new System.Windows.Forms.DataGridView();
             this.btnUpdateStatus = new System.Windows.Forms.Button();
+            this.cmbRequestStatus = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,10 +89,21 @@
             this.btnUpdateStatus.UseVisualStyleBackColor = true;
             this.btnUpdateStatus.Click += new System.EventHandler(this.btnUpdateStatus_Click);
             // 
+            // cmbRequestStatus
+            // 
+            this.cmbRequestStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRequestStatus.FormattingEnabled = true;
+            this.cmbRequestStatus.Location = new System.Drawing.Point(434, 14);
+            this.cmbRequestStatus.Name = "cmbRequestStatus";
+            this.cmbRequestStatus.Size = new System.Drawing.Size(247, 21);
+            this.cmbRequestStatus.TabIndex = 32;
+            this.cmbRequestStatus.SelectedIndexChanged += new System.EventHandler(this.cmbRequestStatus_SelectedIndexChanged);
+            // 
             // RequestControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cmbRequestStatus);
             this.Controls.Add(this.btnUpdateStatus);
             this.Controls.Add(this.btnAddNew);
             this.Controls.Add(this.label1);
@@ -111,5 +123,6 @@
         private System.Windows.Forms.Button btnUpdateRequisition;
         private System.Windows.Forms.DataGridView dtgProducts;
         private System.Windows.Forms.Button btnUpdateStatus;
+        private System.Windows.Forms.ComboBox cmbRequestStatus;
     }
 }

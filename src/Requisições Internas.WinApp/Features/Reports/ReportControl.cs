@@ -13,6 +13,7 @@ using Requisições_Internas.Application.Base;
 using Requisições_Internas.Application.Features.Users;
 using Requisições_Internas.Application.Features.Products;
 using Requisições_Internas.Application.Features.Providers;
+using Requisições_Internas.Domain.Object_Values;
 
 namespace Requisições_Internas.WinApp.Features.Reports
 {
@@ -23,6 +24,7 @@ namespace Requisições_Internas.WinApp.Features.Reports
         IUserService _userService;
         IProductService _productService;
         IProviderService _providerService;
+        bool allStates = false;
         public ReportControl(IRequestService requestService, IInvoiceService invoiceService, IUserService userService, IProductService productService, IProviderService providerService)
         {
             InitializeComponent();
@@ -32,47 +34,63 @@ namespace Requisições_Internas.WinApp.Features.Reports
             _productService = productService;
             _providerService = providerService;
 
-            var items = new List<string>() { "Requisições", "Notas fiscais", "Usuários", "Produtos", "Fornecedores" };
+            foreach (var item in Enum.GetValues(typeof(Status)))
+            {
+                cmbStatus.Items.Add(item);
+            }
 
-            cmbReportType.Items.AddRange(items.ToArray());
-            cmbReportType.SelectedIndex++;
+            cmbStatus.SelectedIndex++;
         }
 
-        private void btnGenerateReport_Click(object sender, EventArgs e)
+        public void GenerateReport()
         {
             saveFileDialog1.ShowDialog();
 
-            string selectedItem = (string)cmbReportType.SelectedItem;
-
             bool generated = false;
-            
-            if (selectedItem == "Requisições")
+
+            switch (tabReports.SelectedIndex)
             {
-                generated = _requestService.GeneratePDFReport(saveFileDialog1.FileName);
+                case 0:
+                    if (allStates)
+                        generated = _requestService.GeneratePDFReport(initialDate.Value, finalDate.Value, saveFileDialog1.FileName);
+                    else
+                        generated = _requestService.GeneratePDFReport(initialDate.Value, finalDate.Value, (Status)cmbStatus.SelectedItem, saveFileDialog1.FileName);
+                    break;
+                case 1:
+                    generated = _invoiceService.GeneratePDFReport(saveFileDialog1.FileName);
+                    break;
+                case 2:
+                    generated = _userService.GeneratePDFReport(saveFileDialog1.FileName);
+                    break;
+                case 3:
+                    generated = _productService.GeneratePDFReport(saveFileDialog1.FileName);
+                    break;
+                case 4:
+                    generated = _providerService.GeneratePDFReport(saveFileDialog1.FileName);
+                    break;
+                default:
+                    break;
             }
 
-            if (selectedItem == "Notas fiscais")
-            {
-                generated = _invoiceService.GeneratePDFReport(saveFileDialog1.FileName);
-            }
-
-            if (selectedItem == "Usuários")
-            {
-                generated = _userService.GeneratePDFReport(saveFileDialog1.FileName);
-            }
-
-            if (selectedItem == "Produtos")
-            {
-                generated = _productService.GeneratePDFReport(saveFileDialog1.FileName);
-            }
-
-            if (selectedItem == "Fornecedores")
-            {
-                generated = _providerService.GeneratePDFReport(saveFileDialog1.FileName);
-            }
 
             if (generated)
                 MessageBox.Show("PDF Gerado com sucesso");
         }
+
+        private void btnGenerateReport_Click(object sender, EventArgs e)
+        {
+            GenerateReport();
+        }
+
+        private void cbAllStates_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAllStates.Checked)
+            {
+                allStates = true;
+            }
+            else
+                allStates = false;
+        }
+
     }
 }

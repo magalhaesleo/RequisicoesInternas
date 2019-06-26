@@ -38,7 +38,7 @@ namespace Requisições_Internas.WinApp.Features.Users
             if (_request != null)
             {
                 Authenticated = true;
-                if (_request.User.Name != user || _request.User.Password != password)
+                if (_request.User.Password != password)
                 {
                     txtUser.Text = "";
                     txtPassword.Text = "";
@@ -49,6 +49,7 @@ namespace Requisições_Internas.WinApp.Features.Users
                 }
 
                 this.Close();
+                return;
             }
 
             User userAuth = _userService.Authenticate(user, password);

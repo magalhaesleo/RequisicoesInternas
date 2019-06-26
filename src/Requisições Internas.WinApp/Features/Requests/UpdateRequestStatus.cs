@@ -50,7 +50,10 @@ namespace Requisições_Internas.WinApp.Features.Requests
             {
                 UserLogin userLogin = new UserLogin(_userService);
                 userLogin.lblTitle.Text = "Validar Informações";
+                userLogin.txtUser.Visible = false;
+                userLogin.lblUser.Visible = false;
                 userLogin.SetRequest(_request);
+
                 userLogin.ShowDialog();
                 if (!userLogin.Authenticated)
                 {

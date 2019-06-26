@@ -12,6 +12,7 @@ using Requisições_Internas.Application.Features.Requests;
 using Requisições_Internas.Domain.Features.Users;
 using Requisições_Internas.Domain.Features.Requests;
 using Requisições_Internas.Application.Features.Users;
+using Requisições_Internas.Domain.Object_Values;
 
 namespace Requisições_Internas.WinApp.Features.Requests
 {
@@ -31,6 +32,13 @@ namespace Requisições_Internas.WinApp.Features.Requests
             dtgProducts.DataSource = _requests;
             dtgProducts.Columns["ProductsRequest"].Visible = false;
             dtgProducts.Columns["Id"].Visible = false;
+
+            foreach (var item in Enum.GetValues(typeof(Status)))
+            {
+                cmbRequestStatus.Items.Add(item);
+            }
+
+            cmbRequestStatus.SelectedIndex++;
         }
 
         public void SetUser(User user)
@@ -51,16 +59,22 @@ namespace Requisições_Internas.WinApp.Features.Requests
 
         public void UpdateListRequests()
         {
+            if (_user == null)
+                return;
+
             List<Request> requests = new List<Request>();
             if (_user.Group == Domain.Object_Values.UserGroup.Normal)
             {
                 requests.AddRange( _requestService.GetAll()
                     .Where(r => r.User.Id == _user.Id)
+                    .Where(r => r.Status == (Status)cmbRequestStatus.SelectedItem)
                     .ToList());
             }
             else
             {
-                requests.AddRange(_requestService.GetAll().ToList());
+                requests.AddRange(_requestService.GetAll()
+                    .Where(r => r.Status == (Status)cmbRequestStatus.SelectedItem)
+                    .ToList());
             }
 
             _requests.Clear();
@@ -89,6 +103,11 @@ namespace Requisições_Internas.WinApp.Features.Requests
             Request request = _requestService.GetById(long.Parse(dtgProducts.SelectedRows[0].Cells["id"].Value.ToString()));
             UpdateRequestStatus updateRequestStatus = new UpdateRequestStatus(_requestService, _userService, request);
             updateRequestStatus.ShowDialog();
+        }
+
+        private void cmbRequestStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateListRequests();
         }
     }
 }
