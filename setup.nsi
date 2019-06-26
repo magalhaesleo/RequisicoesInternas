@@ -17,10 +17,14 @@
 !define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 
+ReserveFile "databaseUser.ini"
+
 ; Welcome page
 !insertmacro MUI_PAGE_WELCOME
 ; Directory page
 !insertmacro MUI_PAGE_DIRECTORY
+;Database page
+Page Custom databaseUser
 ; Start menu page
 var ICONS_GROUP
 !define MUI_STARTMENUPAGE_NODISABLE
@@ -29,6 +33,7 @@ var ICONS_GROUP
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "${PRODUCT_UNINST_KEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "${PRODUCT_STARTMENU_REGVAL}"
 !insertmacro MUI_PAGE_STARTMENU Application $ICONS_GROUP
+
 ; Instfiles page
 !insertmacro MUI_PAGE_INSTFILES
 ; Finish page
@@ -49,6 +54,12 @@ InstallDir "$PROGRAMFILES\Requisições Internas"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
+Function .OnInit
+  !insertmacro MUI_INSTALLOPTIONS_EXTRACT "databaseUser.ini"
+      InitPluginsDir
+   SetOutPath "$PLUGINSDIR"
+   File "scriptWithData.sql"
+FunctionEnd
 
 Section "SeçãoPrincipal" SEC01
   SetOutPath "$INSTDIR"
@@ -88,12 +99,23 @@ Section "SeçãoPrincipal" SEC01
   File "src\Requisições Internas.WinApp\bin\Debug\SimpleInjector.dll"
   File "src\Requisições Internas.WinApp\bin\Debug\SimpleInjector.xml"
 
+          ; the computer name. obviously you can prompt for a host
+  	ReadRegStr $R2 HKLM "SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName" "ComputerName"
+
+  !insertmacro MUI_INSTALLOPTIONS_READ $R3 "databaseUser.ini" "Field 5" "State"
+  !insertmacro MUI_INSTALLOPTIONS_READ $R4 "databaseUser.ini" "Field 6" "State"
+	GetTempFileName $R0
+	ExecWait '"C:\Program Files\Microsoft SQL Server\110\Tools\Binn\SQLCMD.EXE" -U "$R3" -P "$R4" -S  "$R2" -d master -i "$PLUGINSDIR\scriptWithData.sql" -b'
+
 ; Shortcuts
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
   CreateDirectory "$SMPROGRAMS\$ICONS_GROUP"
   CreateShortCut "$SMPROGRAMS\$ICONS_GROUP\Requisições Internas.lnk" "$INSTDIR\Requisições Internas.WinApp.exe"
   CreateShortCut "$DESKTOP\Requisições Internas.lnk" "$INSTDIR\Requisições Internas.WinApp.exe"
   !insertmacro MUI_STARTMENU_WRITE_END
+
+
+ 
 SectionEnd
 
 Section -AdditionalIcons
@@ -172,3 +194,12 @@ Section Uninstall
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
   SetAutoClose true
 SectionEnd
+
+Function databaseUser
+	IfSilent end
+  
+  !insertmacro MUI_HEADER_TEXT "Informações de banco de dados" "Insira os dados de usuario e senha"
+	!insertmacro MUI_INSTALLOPTIONS_DISPLAY "databaseUser.ini"
+
+	end:
+FunctionEnd
